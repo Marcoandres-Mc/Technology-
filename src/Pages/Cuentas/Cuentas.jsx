@@ -4,4 +4,4 @@ const Cuentas = () => {
   )
 }
 
-export default Cuentas
+export default Cuentas;

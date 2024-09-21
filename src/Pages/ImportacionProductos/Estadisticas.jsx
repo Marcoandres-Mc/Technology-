@@ -4,4 +4,4 @@ const Estadisticas = () => {
   )
 }
 
-export default Estadisticas
+export default Estadisticas;

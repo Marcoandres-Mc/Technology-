@@ -4,4 +4,4 @@ const VentasProductos = () => {
   )
 }
 
-export default VentasProductos
+export default VentasProductos;

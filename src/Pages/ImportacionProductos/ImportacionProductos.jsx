@@ -4,4 +4,4 @@ const ImportacionProductos = () => {
   )
 }
 
-export default ImportacionProductos
+export default ImportacionProductos;

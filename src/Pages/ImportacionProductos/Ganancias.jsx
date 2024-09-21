@@ -4,4 +4,4 @@ const Ganancias = () => {
   )
 }
 
-export default Ganancias
+export default Ganancias;

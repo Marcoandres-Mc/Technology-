@@ -4,4 +4,4 @@ function Categorias() {
   )
 }
 
-export default Categorias
+export default Categorias;
