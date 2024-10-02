@@ -1,0 +1,85 @@
+{
+    "propiedadesVentaProductos": ["Nombre", "Gmail", "Producto", "Precio", "Fecha"],
+    "bdVentaProductos": [
+        {
+            "id": 1,
+            "nombre": "Iphone 13",
+            "gmail": "example1@gmail.com",
+            "producto": "Iphone 13",
+            "precio": "$1000",
+            "fecha": "2023-01-01"
+        },
+        {
+            "id": 2,
+            "nombre": "Galaxy S21",
+            "gmail": "example2@gmail.com",
+            "producto": "Galaxy S21",
+            "precio": "$850",
+            "fecha": "2023-02-01"
+        },
+        {
+            "id": 3,
+            "nombre": "MacBook Pro",
+            "gmail": "example3@gmail.com",
+            "producto": "MacBook Pro",
+            "precio": "$2500",
+            "fecha": "2023-03-01"
+        },
+        {
+            "id": 4,
+            "nombre": "WH-1000XM4",
+            "gmail": "example4@gmail.com",
+            "producto": "WH-1000XM4",
+            "precio": "$350",
+            "fecha": "2023-04-01"
+        },
+        {
+            "id": 5,
+            "nombre": "iPad Pro",
+            "gmail": "example5@gmail.com",
+            "producto": "iPad Pro",
+            "precio": "$1200",
+            "fecha": "2023-05-01"
+        },
+        {
+            "id": 6,
+            "nombre": "Pixel 6",
+            "gmail": "example6@gmail.com",
+            "producto": "Pixel 6",
+            "precio": "$700",
+            "fecha": "2023-06-01"
+        },
+        {
+            "id": 7,
+            "nombre": "XPS 13",
+            "gmail": "example7@gmail.com",
+            "producto": "XPS 13",
+            "precio": "$1500",
+            "fecha": "2023-07-01"
+        },
+        {
+            "id": 8,
+            "nombre": "PlayStation 5",
+            "gmail": "example8@gmail.com",
+            "producto": "PlayStation 5",
+            "precio": "$500",
+            "fecha": "2023-08-01"
+        },
+        {
+            "id": 9,
+            "nombre": "Xbox Series X",
+            "gmail": "example9@gmail.com",
+            "producto": "Xbox Series X",
+            "precio": "$500",
+            "fecha": "2023-09-01"
+        },
+        {
+            "id": 10,
+            "nombre": "Apple Watch Series 7",
+            "gmail": "example10@gmail.com",
+            "producto": "Apple Watch Series 7",
+            "precio": "$400",
+            "fecha": "2023-10-01"
+        }
+    ]
+}

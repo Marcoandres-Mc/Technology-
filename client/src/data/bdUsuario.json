@@ -1,0 +1,26 @@
+{
+    "propiedadesUsuarios": ["Nombre", "Gmail", "Contraseña", "InicioSesion"],
+    "bdUsuarios": [
+        {
+            "id": 1,
+            "nombre": "Juan Perez",
+            "gmail": "juan.perez@example.com",
+            "contraseña": "password123",
+            "inicioSesion": "2023-10-01"
+        },
+        {
+            "id": 2,
+            "nombre": "Maria Lopez",
+            "gmail": "maria.lopez@example.com",
+            "contraseña": "securepassword",
+            "inicioSesion": "2023-09-15"
+        },
+        {
+            "id": 3,
+            "nombre": "Carlos Sanchez",
+            "gmail": "carlos.sanchez@example.com",
+            "contraseña": "mypassword",
+            "inicioSesion": "2023-08-20"
+        }
+    ]
+}

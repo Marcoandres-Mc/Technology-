@@ -1,0 +1,75 @@
+{
+    "propiedadesProductos": ["Nombre", "Marca", "Precio", "Stock"],
+    "bdProductos": [
+        {
+            "id": 1,
+            "nombre": "Iphone 13",
+            "marca": "Apple",
+            "precio": "$1000",
+            "stock": 10
+        },
+        {
+            "id": 2,
+            "nombre": "Galaxy S21",
+            "marca": "Samsung",
+            "precio": "$850",
+            "stock": 15
+        },
+        {
+            "id": 3,
+            "nombre": "MacBook Pro",
+            "marca": "Apple",
+            "precio": "$2500",
+            "stock": 5
+        },
+        {
+            "id": 4,
+            "nombre": "WH-1000XM4",
+            "marca": "Sony",
+            "precio": "$350",
+            "stock": 20
+        },
+        {
+            "id": 5,
+            "nombre": "iPad Pro",
+            "marca": "Apple",
+            "precio": "$1200",
+            "stock": 8
+        },
+        {
+            "id": 6,
+            "nombre": "Pixel 6",
+            "marca": "Google",
+            "precio": "$700",
+            "stock": 12
+        },
+        {
+            "id": 7,
+            "nombre": "XPS 13",
+            "marca": "Dell",
+            "precio": "$1500",
+            "stock": 7
+        },
+        {
+            "id": 8,
+            "nombre": "PlayStation 5",
+            "marca": "Sony",
+            "precio": "$500",
+            "stock": 25
+        },
+        {
+            "id": 9,
+            "nombre": "Xbox Series X",
+            "marca": "Microsoft",
+            "precio": "$500",
+            "stock": 18
+        },
+        {
+            "id": 10,
+            "nombre": "Apple Watch Series 7",
+            "marca": "Apple",
+            "precio": "$400",
+            "stock": 30
+        }
+    ]
+}
