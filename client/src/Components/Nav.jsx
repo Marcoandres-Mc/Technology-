@@ -8,7 +8,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 const Nav = ({children}) => {
   return (
     <>
-        <nav className="w-full sticky h-25" style={{ backgroundColor: '#0b4368' }}>
+        <nav className="w-full sticky h-25" style={{ backgroundColor: '#5edee7' }}>
           <div className="container mx-auto px-6 py-3">
             <div className="flex items-center justify-between">
               <div className="w-full flex flex-row lg:justify-end justify-between text-white ">
