@@ -26,13 +26,13 @@ function App() {
   };
   return (
     <>
-      <div className="flex flex-col sm:flex-row ">
+      <div className="flex flex-col sm:flex-row bg-gray-300">
         <Menu className="hidden sm:block" isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
         <div className="flex flex-col w-[100%] md:ml-[300px]">
           <Nav> 
             <BotonMenu  isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
           </Nav>
-          <div className='h-full'>
+          <div className='h-full '>
             <Routes className="sm:w-full">
               <Route path="*" element={<PaginaNoDisponible />} />
               <Route path="/" element={<Home />} />

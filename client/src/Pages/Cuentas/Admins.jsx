@@ -8,7 +8,7 @@ import BtnEspecial from "../../Components/BtnEspecial";
 const Admins = () => {
 
   return (
-    <div className="m-10">  
+    <div className="m-10 " >  
       <h2 className="text-3xl m-2">Admins</h2>
       <div>
       <Tabla propiedadesBd={propiedadesAdmins}  bd={bdAdmins} edit='true' eliminar='true'/>

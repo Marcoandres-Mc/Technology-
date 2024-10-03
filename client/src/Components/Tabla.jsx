@@ -15,8 +15,8 @@ export function Tabla({propiedadesBd, bd, edit = false,eliminar= false, title}) 
               <th key={propiedadDb} className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
                 <Typography
                   variant="small"
-                  color="blue-gray"
-                  className="font-normal leading-none opacity-70"
+                  color="black"
+                  className="font-normal leading-none"
                 >
                   {propiedadDb}
                 </Typography>
@@ -28,7 +28,7 @@ export function Tabla({propiedadesBd, bd, edit = false,eliminar= false, title}) 
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="font-normal leading-none opacity-70"
+                  className="font-normal leading-none"
                 >
                   Editar
                 </Typography>
@@ -39,7 +39,7 @@ export function Tabla({propiedadesBd, bd, edit = false,eliminar= false, title}) 
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="font-normal leading-none opacity-70"
+                  className="font-normal leading-none"
                 >
                   Eliminar
                 </Typography>
