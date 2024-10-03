@@ -1,26 +1,41 @@
 {
-    "propiedadesUsuarios": ["Nombre", "Gmail", "Contraseña", "InicioSesion"],
+    "propiedadesUsuarios": ["Nombre", "Gmail", "Contraseña"],
     "bdUsuarios": [
         {
             "id": 1,
             "nombre": "Juan Perez",
             "gmail": "juan.perez@example.com",
-            "contraseña": "password123",
-            "inicioSesion": "2023-10-01"
+            "contraseña": "password123"
         },
         {
             "id": 2,
             "nombre": "Maria Lopez",
             "gmail": "maria.lopez@example.com",
-            "contraseña": "securepassword",
-            "inicioSesion": "2023-09-15"
+            "contraseña": "securepassword"
         },
         {
             "id": 3,
             "nombre": "Carlos Sanchez",
             "gmail": "carlos.sanchez@example.com",
-            "contraseña": "mypassword",
-            "inicioSesion": "2023-08-20"
+            "contraseña": "mypassword"
+        },
+        {
+            "id": 4,
+            "nombre": "Ana Martinez",
+            "gmail": "ana.martinez@example.com",
+            "contraseña": "ana12345"
+        },
+        {
+            "id": 5,
+            "nombre": "Luis Gomez",
+            "gmail": "luis.gomez@example.com",
+            "contraseña": "luispassword"
+        },
+        {
+            "id": 6,
+            "nombre": "Elena Rodriguez",
+            "gmail": "elena.rodriguez@example.com",
+            "contraseña": "elena2023"
         }
     ]
 }

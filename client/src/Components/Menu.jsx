@@ -77,13 +77,13 @@ export function Menu({isDrawerOpen}) {
 
     {
         id: 3,
-        nombre: 'Reportes',
+        nombre: 'Provedores',
         icon: CogIcon,
         subcategorias: [
             {
                 id: 1,
-                nombre: 'Reportes',
-                url: '/reportes'
+                nombre: 'Provedores',
+                url: '/provedores'
             }
         ]
     },

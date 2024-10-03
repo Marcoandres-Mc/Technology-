@@ -1,0 +1,85 @@
+{
+    "propiedadesImportacionProductos": ["Nombre", "Unidades", "Marca", "Invertido", "Fecha"],
+    "bdImportacionProductos": [
+        {
+            "id": 1,
+            "nombre": "Iphone 13",
+            "unidades": 10,
+            "marca": "Apple",
+            "invertido": "$10000",
+            "fecha": "2023-01-01"
+        },
+        {
+            "id": 2,
+            "nombre": "Galaxy S21",
+            "unidades": 15,
+            "marca": "Samsung",
+            "invertido": "$12750",
+            "fecha": "2023-02-01"
+        },
+        {
+            "id": 3,
+            "nombre": "MacBook Pro",
+            "unidades": 5,
+            "marca": "Apple",
+            "invertido": "$12500",
+            "fecha": "2023-03-01"
+        },
+        {
+            "id": 4,
+            "nombre": "WH-1000XM4",
+            "unidades": 20,
+            "marca": "Sony",
+            "invertido": "$7000",
+            "fecha": "2023-04-01"
+        },
+        {
+            "id": 5,
+            "nombre": "iPad Pro",
+            "unidades": 8,
+            "marca": "Apple",
+            "invertido": "$9600",
+            "fecha": "2023-05-01"
+        },
+        {
+            "id": 6,
+            "nombre": "Pixel 6",
+            "unidades": 12,
+            "marca": "Google",
+            "invertido": "$8400",
+            "fecha": "2023-06-01"
+        },
+        {
+            "id": 7,
+            "nombre": "XPS 13",
+            "unidades": 7,
+            "marca": "Dell",
+            "invertido": "$10500",
+            "fecha": "2023-07-01"
+        },
+        {
+            "id": 8,
+            "nombre": "PlayStation 5",
+            "unidades": 25,
+            "marca": "Sony",
+            "invertido": "$12500",
+            "fecha": "2023-08-01"
+        },
+        {
+            "id": 9,
+            "nombre": "Xbox Series X",
+            "unidades": 18,
+            "marca": "Microsoft",
+            "invertido": "$9000",
+            "fecha": "2023-09-01"
+        },
+        {
+            "id": 10,
+            "nombre": "Apple Watch Series 7",
+            "unidades": 30,
+            "marca": "Apple",
+            "invertido": "$12000",
+            "fecha": "2023-10-01"
+        }
+    ]
+}

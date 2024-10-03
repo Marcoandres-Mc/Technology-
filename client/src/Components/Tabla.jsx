@@ -7,16 +7,16 @@ import {Button} from "@material-tailwind/react";
 export function Tabla({propiedadesBd, bd, edit = false,eliminar= false, title}) {
   const propiedadesMin = propiedadesBd.map(propiedad => propiedad.toLowerCase());
   return (
-    <Card className="h-full w-50">
+    <Card className="h-full w-50 m-3">
       <table className="w-full min-w-max table-auto text-left">
         <thead>
           <tr>
             {propiedadesBd.map((propiedadDb) => (
-              <th key={propiedadDb} className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+              <th key={propiedadDb} className="border-b border-blue-gray-100 bg-blue-gray-50 p-3 text-center">
                 <Typography
                   variant="small"
                   color="black"
-                  className="font-normal leading-none"
+                  className="font-normal leading-none text-center"
                 >
                   {propiedadDb}
                 </Typography>
@@ -24,22 +24,22 @@ export function Tabla({propiedadesBd, bd, edit = false,eliminar= false, title}) 
             ))}
 
             {edit && (
-              <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+              <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-3  text-center">
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="font-normal leading-none"
+                  className="font-normal leading-none text-center"
                 >
                   Editar
                 </Typography>
               </th>
             )}
             {eliminar && (
-              <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+              <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-3 text-center">
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="font-normal leading-none"
+                  className="font-normal leading-none text-center"
                 >
                   Eliminar
                 </Typography>
@@ -53,7 +53,7 @@ export function Tabla({propiedadesBd, bd, edit = false,eliminar= false, title}) 
             <tr key={index} className="even:bg-blue-gray-50/50">
               {
                 propiedadesMin.map((propiedad) => (
-                  <td key={propiedad} className="p-4">
+                  <td key={propiedad} className="p-4 text-center">
                     <Typography variant="small" color="blue-gray" className="font-normal">
                       {item[propiedad]}
                     </Typography>
@@ -62,14 +62,14 @@ export function Tabla({propiedadesBd, bd, edit = false,eliminar= false, title}) 
               }
 
               {edit && (
-                <td className="p-4"> 
+                <td className="p-4 text-center flex justify-center"> 
                         <BtnEspecial className={"bg-white"} propiedadesBd={propiedadesBd} titulo={title}/>
                 </td>
                 
               )}
 
               {eliminar && (
-                <td className="p-4">
+                <td className="p-4 text-center">
                   <Typography variant="small" color="blue-gray" className="font-normal">
                     <Button className="font-bold" >
                       <BtnEspecial className={"bg-white"} propiedadesBd={propiedadesBd} titulo={title} type="delete"/>

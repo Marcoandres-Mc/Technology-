@@ -21,55 +21,6 @@
       "rol": "Admin",
       "gmail": "maria.lopez@gmail.com",
       "contraseña": "password123"
-    },
-    {
-      "id": 4,
-      "nombre": "Juan Martinez",
-      "rol": "Admin",
-      "gmail": "juan.martinez@gmail.com",
-      "contraseña": "password123"
-    },
-    {
-      "id": 5,
-      "nombre": "Ana Gomez",
-      "rol": "Admin",
-      "gmail": "ana.gomez@gmail.com",
-      "contraseña": "password123"
-    },
-    {
-      "id": 6,
-      "nombre": "Luis Fernandez",
-      "rol": "Admin",
-      "gmail": "luis.fernandez@gmail.com",
-      "contraseña": "password123"
-    },
-    {
-      "id": 7,
-      "nombre": "Elena Rodriguez",
-      "rol": "Admin",
-      "gmail": "elena.rodriguez@gmail.com",
-      "contraseña": "password123"
-    },
-    {
-      "id": 8,
-      "nombre": "Miguel Sanchez",
-      "rol": "Admin",
-      "gmail": "miguel.sanchez@gmail.com",
-      "contraseña": "password123"
-    },
-    {
-      "id": 9,
-      "nombre": "Laura Torres",
-      "rol": "Admin",
-      "gmail": "laura.torres@gmail.com",
-      "contraseña": "password123"
-    },
-    {
-      "id": 10,
-      "nombre": "Pedro Ramirez",
-      "rol": "Admin",
-      "gmail": "pedro.ramirez@gmail.com",
-      "contraseña": "password123"
     }
   ]
 }

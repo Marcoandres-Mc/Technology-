@@ -1,0 +1,29 @@
+{
+    "propiedadesProvedores": ["Producto", "Marca", "Telefono", "Correo"],
+    "bdProvedores": [
+        {
+            "producto": "Laptop",
+            "marca": "Dell",
+            "telefono": "123456789",
+            "correo": "dell@example.com"
+        },
+        {
+            "producto": "Smartphone",
+            "marca": "Samsung",
+            "telefono": "987654321",
+            "correo": "samsung@example.com"
+        },
+        {
+            "producto": "Tablet",
+            "marca": "Apple",
+            "telefono": "123456789",
+            "correo": "apple@example.com"
+        },
+        {
+            "producto": "Monitor",
+            "marca": "LG",
+            "telefono": "987654321",
+            "correo": "lg@example.com"
+        }
+    ]
+}

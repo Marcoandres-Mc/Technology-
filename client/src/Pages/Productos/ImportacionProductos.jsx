@@ -1,7 +1,10 @@
 
 import Tabla from "../../Components/Tabla";
-import AddItem from "../../Components/BtnEspecial";
-import { bdVentaProductos, propiedadesVentaProductos } from "../../data/bdVentaProductos.json";
+import  BtnEspecial from "../../Components/BtnEspecial";
+
+import { bdImportacionProductos, propiedadesImportacionProductos } from "../../data/bdImportacionProductos.json";
+
+import {Typography} from "@material-tailwind/react";
 
 
 const ImportacionProductos = () => {
@@ -9,11 +12,13 @@ const ImportacionProductos = () => {
 
   return (
     <div className="m-10">  
-      <h2 className="text-3xl m-2">Productos</h2>
+      <Typography variant="h2" className="text-center">
+        Importacion de productos
+      </Typography>
       <div>
-      <Tabla propiedadesBd={propiedadesVentaProductos}  bd={bdVentaProductos} edit='true' title={"venta de productos"} eliminar='true'/>
+      <Tabla propiedadesBd={propiedadesImportacionProductos}  bd={bdImportacionProductos} edit='true' title={"venta de productos"} eliminar='true'/>
       <div className={"my-5"}>
-      <AddItem  propiedadesBd={propiedadesVentaProductos} type={"new"} titulo={"producto"} genero={"f"} />
+      <BtnEspecial propiedadesBd={propiedadesImportacionProductos} type={"new"} titulo={"producto"} genero={"f"} />
       </div>
       
       </div>
