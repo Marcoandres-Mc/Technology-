@@ -11,6 +11,7 @@ import Menu from './Components/Menu';
 import BotonMenu from './Components/BotonMenu';
 import { useState } from 'react';
 import Ajustes from './Pages/Productos/Ajustes';
+import Login from './Pages/Login';
 
 
 
@@ -39,7 +40,7 @@ function App() {
           <div className='h-full '>
             <Routes className="sm:w-full">
               <Route path="*" element={<PaginaNoDisponible />} />
-              <Route path="/" element={<Admins />} />
+              <Route path="/" element={<Login />} />
               
               <Route path="/cuentas/*" element={<Cuentas/>}>
                 <Route path="admins" element={<Admins />} />

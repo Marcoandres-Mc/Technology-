@@ -52,19 +52,19 @@ return (
         </Button>
     </div>
     <Dialog size="sm" open={open} handler={handleOpen} className="p-4">
-            <DialogHeader className="relative m-0 block">
-                    <Typography variant="h4" color="blue-gray">
-                    {type === 'new' ? `Agregar nuev${letra} ${titulo}` : `Editar ${titulo}`}
-                    </Typography>
-                    <IconButton
-                    size="sm"
-                    variant="text"
-                    className="!absolute right-3.5 top-3.5"
-                    onClick={handleOpen}>
-                    <XMarkIcon className="h-4 w-4 stroke-2" />
-                    </IconButton>
-            </DialogHeader>
-            <form onSubmit={onSubmit}>
+        <DialogHeader className="relative m-0 block">
+                <Typography variant="h4" color="blue-gray">
+                {type === 'new' ? `Agregar nuev${letra} ${titulo}` : `Editar ${titulo}`}
+                </Typography>
+                <IconButton
+                size="sm"
+                variant="text"
+                className="!absolute right-3.5 top-3.5"
+                onClick={handleOpen}>
+                <XMarkIcon className="h-4 w-4 stroke-2" />
+                </IconButton>
+        </DialogHeader>
+        <form onSubmit={onSubmit}>
             <DialogBody className="space-y-4 pb-6">
                 <Typography
                 variant="small"
@@ -72,7 +72,7 @@ return (
                 className="mb-2 text-left font-medium">
                 </Typography>
                 {
-                    propiedadesBd && propiedadesBd.map((item, index) => (
+                    Array.isArray(propiedadesBd) && propiedadesBd.map((item, index) => (
                     <div key={index}>
                         <Typography
                         variant="small"
@@ -80,15 +80,15 @@ return (
                         className="mb-2 text-left font-medium">
                         </Typography>
 
-                        <label className="text-blue-gray-700" htmlFor={item.nombre}>{item.nombre}</label>
+                        <label className="text-blue-gray-700" htmlFor={item}>{item}</label>
 
                         <Input
                         type='text'
-                        {...register(item.nombre, {required: true})}
+                        {...register(item, {required: true})}
                         color="gray"
                         size="lg"
                         placeholder=""
-                        name={item.nombre}
+                        name={item}
                         className="placeholder:opacity-100 focus:!border-t-gray-900"
                         containerProps={{
                                 className: "!min-w-full",
@@ -97,7 +97,7 @@ return (
                                 className: "hidden",
                         }}
                         />
-                            {errors[item.nombre] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
+                            {errors[item] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
                     </div>
                     ))}
             </DialogBody>
@@ -106,11 +106,18 @@ return (
                             Agregar {titulo}
                     </Button>
             </DialogFooter>
-            </form>
+        </form>
     </Dialog>
     </>
     
 )
 }
+
+BtnUser.propTypes = {
+    propiedadesBd: PropTypes.arrayOf(PropTypes.string).isRequired,
+    type: PropTypes.string.isRequired,
+    titulo: PropTypes.string.isRequired,
+    genero: PropTypes.string.isRequired
+  };
 
 export default BtnUser;

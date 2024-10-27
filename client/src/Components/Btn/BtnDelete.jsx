@@ -19,7 +19,9 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const BtnDelete = ({type, titulo}) => {
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(!open);
+    const handleOpen = () => {
+        setOpen(!open)
+    };
 
   return (
     <>

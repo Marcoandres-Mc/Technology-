@@ -1,5 +1,5 @@
 
-import Tabla from '../Tablas/Tabla';
+import Tabla from '../../Components/Tabla';
 
 import BtnUser from "../../Components/Btn/BtnUser";
 
@@ -11,7 +11,8 @@ import { useEffect, useState } from 'react';
 
 
 const Usuarios = () => {
-  const propiedades = ['nombre', 'email', 'password', 'date'];
+  const propiedadesTb = ['nombre', 'email', 'date'];
+  const propiedades = ['nombre', 'email', 'password'];
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const Usuarios = () => {
         Usuarios
       </Typography>
       <div>
-        <Tabla propiedadesBd={propiedades} bd={usuarios} />
+        <Tabla propiedadesBd={propiedadesTb} bd={usuarios} />
         <div className="my-5">
           <BtnUser propiedadesBd={propiedades} type="new" titulo="cuenta" genero="f" />
         </div>
