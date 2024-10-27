@@ -1,8 +1,8 @@
 
-import Tabla from "../../Components/Tabla";
+import Tabla from '../Tablas/Tabla';
 
 import { bdAdmins, propiedadesAdmins } from "../../data/bdAdmin.json";
-import BtnEspecial from "../../Components/BtnEspecial";
+import BtnUser from "../../Components/Btn/BtnUser";
 
 
 import {Typography} from "@material-tailwind/react";
@@ -18,7 +18,7 @@ const Admins = () => {
       <div>
         <Tabla propiedadesBd={propiedadesAdmins} bd={bdAdmins} edit="true" eliminar="true" />
         <div className="my-5">
-          <BtnEspecial propiedadesBd={propiedadesAdmins} type="new" titulo="cuenta" genero="f" />
+          <BtnUser bd={propiedadesAdmins} type="new" titulo="cuenta" genero="f" />
         </div>
       </div>
     </div>

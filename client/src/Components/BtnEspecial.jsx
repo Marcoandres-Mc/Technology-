@@ -16,15 +16,23 @@ import {
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
+import { useForm } from "react-hook-form";
+
 
  
-export function BtnEspecial({type, propiedadesBd, titulo,genero}) {
+export function BtnEspecial({type, titulo,genero, bd}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(!open);
 
-  propiedadesBd.map(propiedad => propiedad.toLowerCase());
   const letraInicial = genero === 'f' ? 'a' : 'o';
   const [letra] = useState(letraInicial);
+
+  const {register, handleSubmit,formState:{errors}} = useForm();
+
+    const onSubmit = handleSubmit((data)=>{
+        console.log(data);
+    })
+
 
   return (
     <>
@@ -38,7 +46,7 @@ export function BtnEspecial({type, propiedadesBd, titulo,genero}) {
     :
       <Button  onClick={handleOpen} variant={type == "new"? "gradient" :"text" }>
         {type =="new"? "Nuev" + letraInicial + " " + titulo: 
-          <svg className="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" className="size-6">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" className="size-6">
             <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z"/>  
           </svg> 
         }
@@ -47,12 +55,6 @@ export function BtnEspecial({type, propiedadesBd, titulo,genero}) {
     </div>
         <Dialog size="sm" open={open} handler={handleOpen} className="p-4">
           <DialogHeader className="relative m-0 block">
-
-            {type === 'delete' ?  
-            <Typography variant="h4" color="blue-gray">
-              ¿Estás seguro de que deseas eliminar este {titulo}?
-            </Typography>
-            :
             <div>
               <Typography variant="h4" color="blue-gray">
                 {type === 'new' ? `Agregar nuev${letra} ${titulo}` : `Editar ${titulo}`}
@@ -63,48 +65,65 @@ export function BtnEspecial({type, propiedadesBd, titulo,genero}) {
                 onClick={handleOpen}>
                   <XMarkIcon className="h-4 w-4 stroke-2" />
                 </IconButton>
-            </div>
-            }  
+            </div> 
           </DialogHeader>
 
-          {type === 'delete' ?  
-          <DialogFooter className='flex justify-between'>
-            <Button color="blue-gray" onClick={handleOpen}>
-              Cancelar
-            </Button>
-
-            <Button color="red" onClick={handleOpen}>
-              Eliminar {titulo}
-            </Button>
-          </DialogFooter>  
-          
-          :
           <div>
           <DialogBody className="space-y-4 pb-6">
-              {propiedadesBd.map((propiedadBd, index) => (
-              <div key={index}>
+            
+            <form onSubmit={onSubmit}>
+              {
+                bd.map((item, index) => (
+                        <div key={index}>
+                            <Typography
+                            variant="small"
+                            color="blue-gray"
+                            className="mb-2 text-left font-medium">
+                            </Typography>
+
+                            <label className="text-blue-gray-700" htmlFor={item.nombre}>{item.nombre}</label>
+
+                            <Input
+                            type='text'
+                            {...register(item.nombre, {required: true})}
+                            color="gray"
+                            size="lg"
+                            placeholder=""
+                            name={item.nombre}
+                            className="placeholder:opacity-100 focus:!border-t-gray-900"
+                            containerProps={{
+                                    className: "!min-w-full",
+                            }}
+                            labelProps={{
+                                    className: "hidden",
+                            }}
+                            />
+                                {errors[item.nombre] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
+                        </div>
+                ))
+                }
+                <div key={index}>
                   <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="mb-2 text-left font-medium"
+                    variant="small"
+                    color="blue-gray"
+                    className="mb-2 text-left font-medium"
                   >
-                  {propiedadBd}
                   </Typography>
                   <Input
-                  color="gray"
-                  size="lg"
-                  placeholder=""
-                  name="name"
-                  className="placeholder:opacity-100 focus:!border-t-gray-900"
-                  containerProps={{
+                    color="gray"
+                    size="lg"
+                    placeholder=""
+                    name="name"
+                    className="placeholder:opacity-100 focus:!border-t-gray-900"
+                    containerProps={{
                       className: "!min-w-full",
-                  }}
-                  labelProps={{
+                    }}
+                    labelProps={{
                       className: "hidden",
-                  }}
+                    }}
                   />
               </div>
-              ))}
+            </form>
           </DialogBody>
           <DialogFooter>
             <Button className="ml-auto" onClick={handleOpen}>
@@ -112,9 +131,6 @@ export function BtnEspecial({type, propiedadesBd, titulo,genero}) {
             </Button>
           </DialogFooter>
           </div>
-          
-          
-          }
 
         </Dialog>
       

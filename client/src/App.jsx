@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home';
 import Admins from './Pages/Cuentas/Admins';
 import Usuarios from './Pages/Cuentas/Usuarios';
 import Productos from './Pages/Productos/Productos';
@@ -12,6 +11,8 @@ import Menu from './Components/Menu';
 import BotonMenu from './Components/BotonMenu';
 import { useState } from 'react';
 import Ajustes from './Pages/Productos/Ajustes';
+
+
 
 import Provedores from './Pages/Provedores';
 

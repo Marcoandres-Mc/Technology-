@@ -63,7 +63,7 @@ export function Tabla({propiedadesBd, bd, edit = false,eliminar= false, title}) 
 
               {edit && (
                 <td className="p-4 text-center flex justify-center"> 
-                        <BtnEspecial className={"bg-white"} propiedadesBd={propiedadesBd} titulo={title}/>
+                  <BtnEspecial className={"bg-white"} propiedadesBd={propiedadesBd} titulo={title}/>
                 </td>
                 
               )}
@@ -72,7 +72,7 @@ export function Tabla({propiedadesBd, bd, edit = false,eliminar= false, title}) 
                 <td className="p-4 text-center">
                   <Typography variant="small" color="blue-gray" className="font-normal">
                     <Button className="font-bold" >
-                      <BtnEspecial className={"bg-white"} propiedadesBd={propiedadesBd} titulo={title} type="delete"/>
+                      <BtnEspecial className={"bg-white"} bd={propiedadesBd} titulo={title} type="delete"/>
                       
                     </Button>
                   </Typography>  
