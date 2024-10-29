@@ -1,11 +1,7 @@
 
 import Tabla from '../../Components/Tabla';
 
-<<<<<<< HEAD
-import BtnUser from "../../Components/Btn/BtnUser";
-=======
 import BtnUser from "../../Components/Btn/User/BtnUser";
->>>>>>> committ
 
 import {Typography} from '@material-tailwind/react';
 
@@ -32,11 +28,7 @@ const Usuarios = () => {
         Usuarios
       </Typography>
       <div>
-<<<<<<< HEAD
-        <Tabla propiedadesBd={propiedadesTb} bd={usuarios} />
-=======
         <Tabla propiedadesBd={propiedadesTb} bd={usuarios} title={"Usuarios"}/>
->>>>>>> committ
         <div className="my-5">
           <BtnUser propiedadesBd={propiedades} type="new" titulo="cuenta" genero="f" />
         </div>

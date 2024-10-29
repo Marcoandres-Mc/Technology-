@@ -1,16 +1,11 @@
 import User from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
-import createAssessToken from '../libs/jwt.js';
 
 
 export const getUser = async (req, res) => {
     const foundUsers = await User.find();
     if(!foundUsers){
-<<<<<<< HEAD
-        return res.ststus(404).json({mansaje: 'Aun no se ha creado nada aqui'})
-=======
         return res.status(404).json({mansaje: 'Aun no se ha creado nada aqui'})
->>>>>>> committ
     }
     res.json(foundUsers);
 }
@@ -44,9 +39,8 @@ export const postUser = async (req,res)=>{
         });
 
         const userSaved = await newUser.save();
-        const token = createAssessToken({id: userSaved._id});
-        res.cookie("token", token)
-        res.status(201).json({token});
+
+        res.status(201).json(userSaved);
 
 
     } catch (error) {
@@ -54,19 +48,6 @@ export const postUser = async (req,res)=>{
     }
 };
 
-<<<<<<< HEAD
-export const deleteUser = async (req,res) => {
-    const foundUser = await User.findById({ id: req.body.id })
-
-    if(!foundUser){
-        return res.status(404).json({mensaje:'Usuario no encontrado'})
-    }
-
-    await User.deleteOne({ nombre: req.body.nombre });
-    res.json({mensaje: 'Usuario eliminado'});
-    
-}
-=======
 export const deleteUser = async (req, res) => {
     const { id } = req.params;
   
@@ -87,7 +68,6 @@ export const deleteUser = async (req, res) => {
       res.status(500).json({ mensaje: error.message });
     }
   };
->>>>>>> committ
     
 
 

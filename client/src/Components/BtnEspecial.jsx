@@ -126,11 +126,8 @@ export function BtnEspecial({type, titulo,genero, bd}) {
             </form>
           </DialogBody>
           <DialogFooter>
-<<<<<<< HEAD
-            <Button className="ml-auto" onClick={handleOpen}>
-=======
+
             <Button className="ml-auto" onClick={handleOpen} >
->>>>>>> committ
               Agregar {titulo}
             </Button>
           </DialogFooter>

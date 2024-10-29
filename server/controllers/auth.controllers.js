@@ -12,6 +12,7 @@ export const register = async (req, res) => {
 
      try {
         const passwordCrypt = await bcrypt.hash(password, 10);
+
         const newUser = new Auth({
             userName,
             email,
@@ -51,17 +52,14 @@ export const login = async (req, res) => {
 
         const token = createAssessToken({ id: user._id });
         res.cookie("token", token)
-<<<<<<< HEAD
-        res.status(200).json({ mensaje: 'Login exitoso' });
-=======
 
         return res.status(200).json({token});
->>>>>>> committ
 
     } catch (error) {
         res.status(500).json({ mensaje: error.message });
     }
 }
+ 
 
 export const logout = async (req, res) => {
     return res.status(200).json({ mensaje: 'Logout exitoso' });
@@ -73,15 +71,11 @@ export const profile = async (req, res) => {
 export const getAdmins = async (req, res) => {
     const foundAdmins = await Auth.find();
     if(!foundAdmins){
-        return res.ststus(404).json({mansaje: 'Aun no se ha creado nada aqui'})
+        return res.status(404).json({mansaje: 'Aun no se ha creado nada aqui'})
     }
     res.json(foundAdmins);
 }
 
-<<<<<<< HEAD
-
-export default { register, login, logout, profile, getAdmins };	
-=======
 export const deleteAdmin = async (req, res) => {
     const { id } = req.params;
   
@@ -106,4 +100,3 @@ export const deleteAdmin = async (req, res) => {
 
 
 export default { register, login, logout, profile, getAdmins, deleteAdmin };	
->>>>>>> committ
