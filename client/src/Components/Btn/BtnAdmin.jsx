@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import PropTypes from 'prop-types';
 
 
 import {
@@ -16,8 +17,11 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { registerAdmin } from '../../api/auth';
 
-const BtnNuevo = ({type, titulo,genero}) => {
+
+
+const BtnAdmin = ({propiedadesBd, type, titulo, genero}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(!open);
 
@@ -31,11 +35,10 @@ const BtnNuevo = ({type, titulo,genero}) => {
 
     const onSubmit = handleSubmit((data)=>{
         console.log(data);
+        registerAdmin(data);
+
     })
-    const mapeo = [{nombre: "nombre"}, {nombre: "email"}, {nombre: "password"}]
 
-
-    
 
 return (
     <>
@@ -69,35 +72,34 @@ return (
                 className="mb-2 text-left font-medium">
                 </Typography>
                 {
-                    mapeo.map((item, index) => (
-                            <div key={index}>
-                                <Typography
-                                variant="small"
-                                color="blue-gray"
-                                className="mb-2 text-left font-medium">
-                                </Typography>
+                    Array.isArray(propiedadesBd) && propiedadesBd.map((item, index) => (
+                    <div key={index}>
+                        <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="mb-2 text-left font-medium">
+                        </Typography>
 
-                                <label className="text-blue-gray-700" htmlFor={item.nombre}>{item.nombre}</label>
+                        <label className="text-blue-gray-700" htmlFor={item}>{item}</label>
 
-                                <Input
-                                type='text'
-                                {...register(item.nombre, {required: true})}
-                                color="gray"
-                                size="lg"
-                                placeholder=""
-                                name={item.nombre}
-                                className="placeholder:opacity-100 focus:!border-t-gray-900"
-                                containerProps={{
-                                        className: "!min-w-full",
-                                }}
-                                labelProps={{
-                                        className: "hidden",
-                                }}
-                                />
-                                    {errors[item.nombre] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
-                            </div>
-                    ))
-                }
+                        <Input
+                        type='text'
+                        {...register(item, {required: true})}
+                        color="gray"
+                        size="lg"
+                        placeholder=""
+                        name={item}
+                        className="placeholder:opacity-100 focus:!border-t-gray-900"
+                        containerProps={{
+                                className: "!min-w-full",
+                        }}
+                        labelProps={{
+                                className: "hidden",
+                        }}
+                        />
+                            {errors[item] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
+                    </div>
+                    ))}
             </DialogBody>
             <DialogFooter>
                     <Button type='submit' className="ml-auto" onClick={handleOpen}>
@@ -111,4 +113,11 @@ return (
 )
 }
 
-export default BtnNuevo
+BtnAdmin.propTypes = {
+    propiedadesBd: PropTypes.arrayOf(PropTypes.string).isRequired,
+    type: PropTypes.string.isRequired,
+    titulo: PropTypes.string.isRequired,
+    genero: PropTypes.string.isRequired
+  };
+
+export default BtnAdmin;

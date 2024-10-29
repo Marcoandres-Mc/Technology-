@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API = "http://localhost:3500/api";
+const API = "http://localhost:3500/api/auth";
 
 export const getAdmins = async () => {
     try {
-      const response = await axios.get(`${API}/cuentas/admins`);
+      const response = await axios.get(`${API}/admins`);
       return response.data;
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -13,9 +13,13 @@ export const getAdmins = async () => {
   };
 
 export const registerAdmin = (user) => { 
-    return axios.post(`${API}/cuentas/admins`,user);
+    return axios.post(`${API}/register`,user);
 }
 
 export const deleteAdmin = (id) => {
-    return axios.delete(`${API}/cuentas/admins/${id}`);
+    return axios.delete(`${API}/logout/${id}`);
+}
+
+export const loginAdmin = (user) => {
+    return axios.post(`${API}/login`,user);
 }

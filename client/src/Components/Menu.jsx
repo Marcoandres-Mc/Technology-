@@ -43,12 +43,12 @@ export function Menu({isDrawerOpen}) {
             {
                 id: 1,
                 nombre: 'Admins',
-                url: '/cuentas/admins'
+                url: 'home/cuentas/admins'
             },
             {
                 id: 2,
                 nombre: 'Usuarios',
-                url: '/cuentas/usuarios'
+                url: 'home/cuentas/usuarios'
             }
         ]   
     },
@@ -144,7 +144,7 @@ export function Menu({isDrawerOpen}) {
                         <AccordionBody className="py-1">
                             <List className="p-0">
                                 {categoria.subcategorias.map((subcategoria) => (
-                                        <NavLink key={subcategoria.id} to={subcategoria.url} className=''>
+                                        <NavLink key={subcategoria.id} to={`/${subcategoria.url}`} className=''>
                                             <ListItem>
                                                 <ListItemPrefix>
                                                 <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />

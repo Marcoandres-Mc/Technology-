@@ -1,11 +1,25 @@
 import { useForm } from "react-hook-form";
+import { useAuth } from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { loginAdmin } from "../api/auth";
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
+    const { login } = useAuth();
+    const navigate = useNavigate();
 
-    const onSubmit = handleSubmit((data) => {
-        console.log(data);
+    const onSubmit = handleSubmit( async (data) => {
+        const response = await loginAdmin(data);
+        loginAdmin(data);
+        if(response.status === 200){
+            login(response.data);
+            navigate('/home');
+        }
     })
+
+    
+
+
 
   return (
     <>

@@ -25,21 +25,19 @@ export const register = async (req, res) => {
 
 
     } catch (error) {
-
         res.status(500).json({ mensaje: error.message });
     }
 }
 
 export const login = async (req, res) => {
-    const {email, password} = req.body;
+    const {userName, password} = req.body;
 
-    if (!email || !password) {
+    if (!userName || !password) {
         return res.status(400).json({ mensaje: 'Todos los campos son obligatorios' });
-        sjdhfhdjfs 
     }
 
     try {
-        const user = await Auth.findOne({ email });
+        const user = await Auth.findOne({ userName });
 
         if (!user) {
             return res.status(400).json({ mensaje: 'Usuario no encontrado' });
@@ -61,13 +59,19 @@ export const login = async (req, res) => {
 }
 
 export const logout = async (req, res) => {
-    res.clearCookie("token");
-    res.status(200).json({ mensaje: 'Logout exitoso' });
+    return res.status(200).json({ mensaje: 'Logout exitoso' });
 }
 
 export const profile = async (req, res) => {
     res.json({ mensaje: 'Profile' });
 }
+export const getAdmins = async (req, res) => {
+    const foundAdmins = await Auth.find();
+    if(!foundAdmins){
+        return res.ststus(404).json({mansaje: 'Aun no se ha creado nada aqui'})
+    }
+    res.json(foundAdmins);
+}
 
 
-export default { register, login, logout, profile };	
+export default { register, login, logout, profile, getAdmins };	

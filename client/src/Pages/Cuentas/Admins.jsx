@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Tabla from '../../Components/Tabla';
 
-import BtnUser from "../../Components/Btn/BtnUser";
+import BtnAdmin from "../../Components/Btn/BtnAdmin";
 import { getAdmins } from '../../api/auth';
 
 
@@ -11,8 +11,8 @@ import {Typography} from "@material-tailwind/react";
 
 
 const Admins = () => {
-  const propiedadesTb = ['nombre', 'email', 'date'];
-  const propiedades = ['nombre', 'email', 'password'];
+  const propiedadesTb = ['userName', 'email', 'date'];
+  const propiedades = ['userName', 'email', 'password'];
   const [admins, setAdmins] = useState([]);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Admins = () => {
       <div>
         <Tabla propiedadesBd={propiedadesTb} bd={admins}/>
         <div className="my-5">
-          <BtnUser propiedadesBd={propiedades} type="new" titulo="cuenta" genero="f" />
+          <BtnAdmin propiedadesBd={propiedades} type="new" titulo="cuenta admin" genero="f" />
         </div>
       </div>
     </div>
