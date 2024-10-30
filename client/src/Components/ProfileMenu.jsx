@@ -5,9 +5,25 @@ import {
     MenuItem,
     Avatar,
     Typography,
+<<<<<<< HEAD
   } from "@material-tailwind/react";
    
   export function ProfileMenu() {
+=======
+    Button,
+  } from "@material-tailwind/react";
+import { logoutAdmin } from "../api/auth";
+import { useNavigate } from 'react-router-dom'
+   
+  export function ProfileMenu() {
+    const navigate = useNavigate();
+    
+    const haddleSignOut = () => {
+      logoutAdmin();
+      navigate('/login');
+
+    }
+>>>>>>> committ
     return (
       <Menu>
         <MenuHandler>
@@ -115,7 +131,13 @@ import {
               />
             </svg>
             <Typography variant="small" className="font-medium">
+<<<<<<< HEAD
               Sign Out
+=======
+              <Button color="red" size="sm" onClick={haddleSignOut}>
+              Sign Out
+              </Button>
+>>>>>>> committ
             </Typography>
           </MenuItem>
         </MenuList>

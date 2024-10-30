@@ -51,7 +51,12 @@ export const login = async (req, res) => {
 
         const token = createAssessToken({ id: user._id });
         res.cookie("token", token)
+<<<<<<< HEAD
         res.status(200).json({ mensaje: 'Login exitoso' });
+=======
+
+        return res.status(200).json({token});
+>>>>>>> committ
 
     } catch (error) {
         res.status(500).json({ mensaje: error.message });
@@ -73,5 +78,32 @@ export const getAdmins = async (req, res) => {
     res.json(foundAdmins);
 }
 
+<<<<<<< HEAD
 
 export default { register, login, logout, profile, getAdmins };	
+=======
+export const deleteAdmin = async (req, res) => {
+    const { id } = req.params;
+  
+    if (!id) {
+      return res.status(400).json({ mensaje: 'ID es requerido' });
+    }
+  
+    try {
+      const foundAdmin = await Auth.findById(id);
+  
+      if (!foundAdmin) {
+        return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+      }
+  
+      await Auth.findByIdAndDelete(id);
+      res.json({ mensaje: 'Usuario eliminado' });
+  
+    } catch (error) {
+      res.status(500).json({ mensaje: error.message });
+    }
+  }
+
+
+export default { register, login, logout, profile, getAdmins, deleteAdmin };	
+>>>>>>> committ

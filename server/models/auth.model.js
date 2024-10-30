@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
+<<<<<<< HEAD
 const AdminsSchema = new mongoose.Schema({
+=======
+const adminsSchema = new mongoose.Schema({
+>>>>>>> committ
     userName: {
         type: String,
         required: true,
@@ -26,4 +30,8 @@ const AdminsSchema = new mongoose.Schema({
     }
 )
 
+<<<<<<< HEAD
 export default mongoose.model('Admins',AdminsSchema)
+=======
+export default mongoose.model('Admins',adminsSchema);
+>>>>>>> committ

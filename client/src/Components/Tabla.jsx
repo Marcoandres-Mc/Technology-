@@ -1,4 +1,5 @@
 import { Card, Typography } from "@material-tailwind/react";
+<<<<<<< HEAD
 import BtnUser from "./Btn/BtnUser";
 import BtnDelete from "./Btn/BtnDelete";
 import {Button} from "@material-tailwind/react";
@@ -13,6 +14,25 @@ export function Tabla({propiedadesBd, bd}) {
     <>
       <h2 className="p-4">Usuarios</h2>
       <Card className="h-full w-50 m-3">      
+=======
+
+import BtnDeleteA from "./Btn/Admin/BtnDeleteA";
+import BtnDeleteU from "./Btn/User/BtnDeleteU";
+import BtnDeleteP from "./Btn/Product/BtnDeleteP";
+
+import {Button} from "@material-tailwind/react";
+import BtnUser from "./Btn/User/BtnUser";
+import BtnAdmin from "./Btn/Admin/BtnAdmin";
+import BtnProduct from "./Btn/Product/BtnProduct";
+
+
+ 
+export function Tabla({propiedadesBd, bd, title}) {
+
+  return (
+    <>
+      <Card className="h-full w-50 m-3">
+>>>>>>> committ
         <table className="w-full min-w-max table-auto text-left">
           
           <thead>
@@ -66,12 +86,25 @@ export function Tabla({propiedadesBd, bd}) {
                     ))
                   }
                   <td className="p-4 text-center"> 
+<<<<<<< HEAD
                     <BtnUser type="edit" titulo={title} />
+=======
+                    {title === "Admins" ? <BtnAdmin type="edit" titulo={title} /> : null}
+                    {title === "Usuarios" ? <BtnUser type="edit" titulo={title} /> : null}
+                    {title === "Productos" ? <BtnProduct type="edit" titulo={title} /> : null}
+>>>>>>> committ
                   </td>
 
                   <td className="p-4 text-center">
                     <Button className="font-bold">
+<<<<<<< HEAD
                       <BtnDelete type="delete" titulo={title} />
+=======
+                      {title === "Admins" ? <BtnDeleteA type="delete" titulo={title} id={usuario._id} /> : null}
+                      {title === "Usuarios" ? <BtnDeleteU type="delete" titulo={title} id={usuario._id} /> : null}
+                      {title === "Productos" ? <BtnDeleteP type="delete" titulo={title} id={usuario._id} /> : null}
+                      
+>>>>>>> committ
                     </Button>
                   </td>
                 </tr>

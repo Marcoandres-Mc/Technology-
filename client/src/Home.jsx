@@ -13,6 +13,10 @@ import Provedores from "./Pages/Provedores"
 import Nav from "./Components/Nav"
 import Menu from "./Components/Menu"
 import BotonMenu from "./Components/BotonMenu"
+<<<<<<< HEAD
+=======
+import HomePage from "./Pages/Home"
+>>>>>>> committ
 
 
 
@@ -32,6 +36,10 @@ const Home = () => {
           <div className='h-full '>
             <Routes className="sm:w-full">
                 <Route path="*" element={<PaginaNoDisponible />} />
+<<<<<<< HEAD
+=======
+                <Route path="/" element={<HomePage/>} />
+>>>>>>> committ
                 <Route path="/cuentas/*" element={<Cuentas/>}>
                     <Route path="admins" element={<Admins />} />
                     <Route path="usuarios" element={<Usuarios />} />

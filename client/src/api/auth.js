@@ -17,9 +17,20 @@ export const registerAdmin = (user) => {
 }
 
 export const deleteAdmin = (id) => {
+<<<<<<< HEAD
     return axios.delete(`${API}/logout/${id}`);
+=======
+    return axios.delete(`${API}/admins/${id}`);
+>>>>>>> committ
 }
 
 export const loginAdmin = (user) => {
     return axios.post(`${API}/login`,user);
+<<<<<<< HEAD
+=======
+}
+
+export const logoutAdmin = () => {
+    return axios.post(`${API}/logout`);
+>>>>>>> committ
 }

@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import userRoutes from './routes/user.routes.js';
 import authRoutes from './routes/auth.routes.js';
+import userProducts from './routes/product.routes.js';
 import cors from 'cors';
 
 const app = express();
@@ -14,12 +15,14 @@ app.get('/', (req, res) => {
 })
 app.use(cors(
     {
-        origin: 'http://localhost:5173',
+        origin: 'http://127.0.0.1:5173',
         credentials: true
     }
 ))
 app.use('/api', userRoutes);
+app.use('', userProducts);
 app.use('/api/auth', authRoutes);
+
 
 
 

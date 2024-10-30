@@ -6,7 +6,11 @@ import createAssessToken from '../libs/jwt.js';
 export const getUser = async (req, res) => {
     const foundUsers = await User.find();
     if(!foundUsers){
+<<<<<<< HEAD
         return res.ststus(404).json({mansaje: 'Aun no se ha creado nada aqui'})
+=======
+        return res.status(404).json({mansaje: 'Aun no se ha creado nada aqui'})
+>>>>>>> committ
     }
     res.json(foundUsers);
 }
@@ -50,6 +54,7 @@ export const postUser = async (req,res)=>{
     }
 };
 
+<<<<<<< HEAD
 export const deleteUser = async (req,res) => {
     const foundUser = await User.findById({ id: req.body.id })
 
@@ -61,6 +66,28 @@ export const deleteUser = async (req,res) => {
     res.json({mensaje: 'Usuario eliminado'});
     
 }
+=======
+export const deleteUser = async (req, res) => {
+    const { id } = req.params;
+  
+    if (!id) {
+      return res.status(400).json({ mensaje: 'ID es requerido' });
+    }
+  
+    try {
+      const foundUser = await User.findById(id);
+  
+      if (!foundUser) {
+        return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+      }
+  
+      await User.findByIdAndDelete(id);
+      res.json({ mensaje: 'Usuario eliminado' });
+    } catch (error) {
+      res.status(500).json({ mensaje: error.message });
+    }
+  };
+>>>>>>> committ
     
 
 

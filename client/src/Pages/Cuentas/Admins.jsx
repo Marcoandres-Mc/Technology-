@@ -2,7 +2,11 @@
 import { useState, useEffect } from 'react';
 import Tabla from '../../Components/Tabla';
 
+<<<<<<< HEAD
 import BtnAdmin from "../../Components/Btn/BtnAdmin";
+=======
+import BtnAdmin from "../../Components/Btn/Admin/BtnAdmin";
+>>>>>>> committ
 import { getAdmins } from '../../api/auth';
 
 
@@ -28,7 +32,11 @@ const Admins = () => {
         Admins
       </Typography>
       <div>
+<<<<<<< HEAD
         <Tabla propiedadesBd={propiedadesTb} bd={admins}/>
+=======
+        <Tabla propiedadesBd={propiedadesTb} bd={admins} title={"Admins"}/>
+>>>>>>> committ
         <div className="my-5">
           <BtnAdmin propiedadesBd={propiedades} type="new" titulo="cuenta admin" genero="f" />
         </div>
