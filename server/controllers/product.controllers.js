@@ -1,16 +1,11 @@
 import Product from '../models/product.model.js';
 
 export const getProducts = async (req, res) => {
-    try {
-        const foundProducts = await Product.find();
-        if (!foundProducts || foundProducts.length === 0) {
-            return res.status(404).json({ mensaje: 'Aun no se ha creado nada aqui' });
-        }
-        res.json(foundProducts);
-    } catch (error) {
-        console.error('Error fetching products:', error);
-        res.status(500).json({ mensaje: 'Error interno del servidor' });
+    const foundProducts = await Product.find();
+    if(!foundProducts){
+        return res.status(404).json({mansaje: 'Aun no se ha creado nada aqui'})
     }
+    res.json(foundProducts);
 }
 
 
