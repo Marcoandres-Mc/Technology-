@@ -29,11 +29,7 @@ const Login = () => {
                 <h3 className="text-3xl font-bold mb-4">Iniciar Sesión</h3>
                 <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4 w-full">
                     <div>
-<<<<<<< HEAD
-                        <label htmlFor="userName" className="block text-gray-300">User Name</label>
-=======
                         <label htmlFor="userName" className="block text-gray-300">UserName</label>
->>>>>>> mejora en el crud productos y mejora en el diseño del logint
                         <input
                             type="text"
                             {...register("userName", { required: true })} 

@@ -23,7 +23,7 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 
-import { Navigate, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -75,7 +75,7 @@ export function Menu({isDrawerOpen}) {
             {
                 id: 1,
                 nombre: 'Ajustes',
-                url: '/productos/ajustes'
+                url: 'home/productos/ajustes'
 
             },
             {

@@ -11,6 +11,8 @@ import BtnProduct from "../../Components/Btn/Product/BtnProduct";
 
 
 
+
+
 const Ajustes = () => {
   const propiedadesTb = ['nombre', 'categoria', 'marca', 'precio', 'stock'];
   const propiedades = ['nombre', 'categoria', 'marca', 'precio', 'stock', 'url', 'descripcion'];
