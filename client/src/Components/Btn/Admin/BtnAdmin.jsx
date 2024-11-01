@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import PropTypes from 'prop-types';
 
@@ -18,26 +18,38 @@ import {
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { registerAdmin } from '../../../api/auth';
+import { getAdmins } from '../../../api/auth';
 
 
 
-const BtnAdmin = ({propiedadesBd, type, titulo, genero}) => {
+const BtnAdmin = ({type, titulo, genero,bd, n}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(!open);
 
     const letraInicial = genero === 'f' ? 'a' : 'o';
     const [letra] = useState(letraInicial);
-
-
+    useEffect(() => {
+        console.log(bd);
+    }, [bd])
 
 
     const {register, handleSubmit,formState:{errors}} = useForm();
-
+    const propiedades = ['userName', 'email','password'];
     const onSubmit = handleSubmit((data)=>{
         console.log(data);
         registerAdmin(data);
 
+
     })
+    const [admin, setAdmin] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getAdmins();
+            setAdmin(data[n]);
+        };
+        fetchData();
+    }, []);
 
 
 return (
@@ -71,35 +83,76 @@ return (
                 color="blue-gray"
                 className="mb-2 text-left font-medium">
                 </Typography>
-                {
-                    Array.isArray(propiedadesBd) && propiedadesBd.map((item, index) => (
+                <div>
+                    {type === 'new' && propiedades.map((propiedad, index) => (
+                        <div key={index} className='m-5'>
+                        <Typography
+                            variant="small"
+                            color="blue-gray"
+                            className="mb-2 text-left font-medium">
+                            {propiedad}
+                        </Typography>
+
+                        <label className="text-blue-gray-700 m-0 p-0" htmlFor={propiedad}></label>
+
+                        <Input
+                            type='text'
+                            {...register(propiedad, { required: true })}
+                            color="gray"
+                            size="lg"
+                            placeholder=""
+                            name={propiedad}
+                            className="placeholder:opacity-100 focus:!border-t-gray-900"
+                            containerProps={{
+                            className: "!min-w-full",
+                            }}
+                            labelProps={{
+                            className: "hidden",
+                            }}
+                        />
+                        {errors[propiedad] && (
+                            <Typography variant="small" color="red" className="mb-2 text-left font-medium">
+                            Este campo es requerido
+                            </Typography>
+                        )}
+                        </div>
+                    ))}
+
+                    {type === 'edit' && propiedades.map((propiedad, index) => (
                     <div key={index}>
                         <Typography
                         variant="small"
                         color="blue-gray"
                         className="mb-2 text-left font-medium">
+                        {propiedad}
                         </Typography>
 
-                        <label className="text-blue-gray-700" htmlFor={item}>{item}</label>
+                        <label className="text-blue-gray-700" htmlFor={propiedad}>{propiedad}</label>
 
                         <Input
                         type='text'
-                        {...register(item, {required: true})}
+                        {...register(propiedad, { required: true })}
                         color="gray"
                         size="lg"
                         placeholder=""
-                        name={item}
+                        name={propiedad}
                         className="placeholder:opacity-100 focus:!border-t-gray-900"
                         containerProps={{
-                                className: "!min-w-full",
+                            className: "!min-w-full",
                         }}
                         labelProps={{
-                                className: "hidden",
+                            className: "hidden",
                         }}
+                        defaultValue={propiedades}
                         />
-                            {errors[item] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
+                        {errors[propiedad] && (
+                        <Typography variant="small" color="red" className="mb-2 text-left font-medium">
+                            Este campo es requerido
+                        </Typography>
+                        )}
                     </div>
                     ))}
+                </div>
             </DialogBody>
             <DialogFooter>
                     <Button type='submit' className="ml-auto" onClick={handleOpen}>

@@ -12,6 +12,16 @@ export const getAdmins = async () => {
     }
   };
 
+  export const getAdmin = async (id) => {
+    try {
+      const response = await axios.get(`${API}/admins/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      return [];
+    }
+  }
+
 export const registerAdmin = (user) => { 
     return axios.post(`${API}/register`,user);
 }

@@ -79,16 +79,9 @@ const Home = () => {
     <div>
       <h2>Ultimos productos</h2>
       <div className="flex flex-row flex-grow justify-center gap-5 ">
-        
-        
 
       </div>
     </div>
-    
-
-    
-    
-    
     </>
   )
 }

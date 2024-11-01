@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {
   Input,
   Option,
-  Select,
   Button,
   Dialog,
   Textarea,
@@ -18,6 +17,7 @@ import {
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { registerProduct } from '../../../api/products';
+import Select from 'react-select';
 
 
 
@@ -38,6 +38,24 @@ const BtnProduct = ({propiedadesBd, type, titulo, genero}) => {
         registerProduct(data);
 
     })
+
+    const options = [
+        { value: 'laptops', label: 'Laptops' },
+        { value: 'celulares', label: 'Celulares' },
+        { value: 'componentes', label: 'Componentes' },
+        { value: 'gaming', label: 'Gaming' }
+      ]
+
+    const Categoria = () => (
+        <div className='my-3 p-0'>
+            <label className="text-blue-gray-700" htmlFor="categoria">{"categoria"}</label>
+            <Select 
+            {...register("categoria", {required: true})}
+            options={options} 
+            />
+            {errors["categoria"] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
+        </div>
+    )
 
 
 return (
@@ -65,7 +83,7 @@ return (
                 </IconButton>
         </DialogHeader>
         <form onSubmit={onSubmit}>
-            <DialogBody className="space-y-4 pb-6">
+            <DialogBody className="space-y-4 pb-6 max-h-96 overflow-y-auto">
                 <Typography
                 variant="small"
                 color="blue-gray"
@@ -99,7 +117,10 @@ return (
                         />
                             {errors[item] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
                     </div>
-                    ))}
+                    ))
+                }
+                <Categoria/>
+                
             </DialogBody>
             <DialogFooter>
                     <Button type='submit' className="ml-auto" onClick={handleOpen}>

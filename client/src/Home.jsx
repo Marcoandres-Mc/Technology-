@@ -34,7 +34,7 @@ const Home = () => {
           <div className='h-full '>
             <Routes className="sm:w-full">
                 <Route path="*" element={<PaginaNoDisponible />} />
-                <Route path="/" element={<HomePage/>} />
+                <Route path="/" element={<Admins />} />
                 <Route path="/cuentas/*" element={<Cuentas/>}>
                     <Route path="admins" element={<Admins />} />
                     <Route path="usuarios" element={<Usuarios />} />

@@ -2,19 +2,30 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { loginAdmin } from "../api/auth";
+import { useState } from "react";
+import imgLogin from '../assets/imgLogin.jpg';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
     const { login } = useAuth();
     const navigate = useNavigate();
+     const [error, setError] = useState(false);
 
     const onSubmit = handleSubmit( async (data) => {
-        const response = await loginAdmin(data);
-        loginAdmin(data);
-        if(response.status === 200){
-            login(response.data);
-            navigate('/home');
+        try{
+            const response = await loginAdmin(data);
+            loginAdmin(data);
+            if(response.status === 200){
+                login(response.data);
+                navigate('/home');
+                setError(false);
+            }else {
+                setError(true);
+            }
+        } catch (err){
+            setError(true);
         }
+        
     })
 
     
@@ -24,32 +35,36 @@ const Login = () => {
   return (
     <>
 
-        <section className="flex flex-col justify-center items-center min-h-screen bg-black text-white">
-            <div className="m-5 p-5 bg-black text-white rounded-lg shadow-md max-w-md w-full">
+        <section className="flex flex-row justify-center items-center min-h-screen text-white ">
+            <figure className="w-auto flex justify-start">
+                <img style={{height: "100vh"}} src={imgLogin} alt="" />
+            </figure>
+            <div className="w-50 m-5 p-5 rounded-lg shadow-md max-w-md w-full text-black flex justify-center align-middle flex-col" style={{ backgroundColor: '#618c98'}}>
                 <h3 className="text-3xl font-bold mb-4">Iniciar Sesión</h3>
                 <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4 w-full">
                     <div>
-                        <label htmlFor="userName" className="block text-gray-300">UserName</label>
+                        <label htmlFor="userName" className="block text-gray-300 text-black">UserName</label>
                         <input
                             type="text"
                             {...register("userName", { required: true })} 
-                            placeholder="Username"
+                            placeholder="Ingresa tu usuario"
                             id="userName"
                             required
-                            className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 text-black"
+                            className="p-3 form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 text-black"
                         />
                     </div>
                     <div>
-                        <label htmlFor="password" className="block text-gray-300">Contraseña</label>
+                        <label htmlFor="password" className="block text-gray-300 text-black">Contraseña</label>
                         <input
                             type="password"
                             {...register("password", { required: true })} 
-                            placeholder="password"
+                            placeholder="Ingresa tu contraseña"
                             id="password"
                             required
-                            className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 text-black"
+                            className="p-3 form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 text-black"
                         />
                     </div>
+                    {error && <div className="text-red-500">Usuario o contraseña incorrectos</div>}
                     <div className="text-center">
                         <button
                             type="submit"

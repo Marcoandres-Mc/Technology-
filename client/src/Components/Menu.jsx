@@ -38,18 +38,6 @@ export function Menu({isDrawerOpen}) {
   
   const categorias = [
     {
-        id: 0,     
-        nombre: 'home',
-        icon: HomeIcon,
-        subcategorias: [
-            {
-                id: 1,
-                nombre: 'Inicio',
-                url: 'home'
-            }
-        ],
-    },
-    {
 
         id: 1,
         nombre: 'Cuentas',

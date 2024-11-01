@@ -11,7 +11,7 @@ import BtnProduct from "./Btn/Product/BtnProduct";
 
 
  
-export function Tabla({propiedadesBd, bd, title}) {
+export function Tabla({propiedadesBd, bd, title,propiedades}) {
 
   return (
     <>
@@ -69,9 +69,9 @@ export function Tabla({propiedadesBd, bd, title}) {
                     ))
                   }
                   <td className="p-4 text-center"> 
-                    {title === "Admins" ? <BtnAdmin type="edit" titulo={title} /> : null}
-                    {title === "Usuarios" ? <BtnUser type="edit" titulo={title} /> : null}
-                    {title === "Productos" ? <BtnProduct type="edit" titulo={title} /> : null}
+                    {title === "Admins" ? <BtnAdmin n={index} type="edit" bd={bd} titulo={title} /> : null}
+                    {title === "Usuarios" ? <BtnUser type="edit" bd={bd} propiedadesBd={propiedadesBd} titulo={title} /> : null}
+                    {title === "Productos" ? <BtnProduct type="edit" bd={bd} propiedadesBd={propiedadesBd} titulo={title} /> : null}
                   </td>
 
                   <td className="p-4 text-center">

@@ -21,6 +21,8 @@ import { registerUser } from '../../../api/users';
 
 
 
+
+
 const BtnUser = ({propiedadesBd, type, titulo, genero}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(!open);
@@ -38,7 +40,6 @@ const BtnUser = ({propiedadesBd, type, titulo, genero}) => {
         registerUser(data);
 
     })
-
 
 return (
     <>
@@ -99,7 +100,8 @@ return (
                         />
                             {errors[item] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
                     </div>
-                    ))}
+                    ))
+                }          
             </DialogBody>
             <DialogFooter>
                     <Button type='submit' className="ml-auto" onClick={handleOpen}>
