@@ -90,10 +90,9 @@ return (
                             variant="small"
                             color="blue-gray"
                             className="mb-2 text-left font-medium">
-                            {propiedad}
                         </Typography>
 
-                        <label className="text-blue-gray-700 m-0 p-0" htmlFor={propiedad}></label>
+                        <label className="text-blue-gray-700 m-0 p-0" htmlFor={propiedad}>{propiedad}</label>
 
                         <Input
                             type='text'

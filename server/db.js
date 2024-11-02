@@ -1,11 +1,17 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import {password} from "./config/config.js";
-import {userAdmin} from "./config/config.js";
 
 dotenv.config();
+
+
 export const connectBd = async () => {
-    const connectionString = `mongodb+srv://${userAdmin}:${password}@cluster0.g7reo.mongodb.net/?retryWrites=true&w=majority&appName=TiendaDb`;
+    const userAdmin = process.env.MONGO_USER;
+    const password = process.env.MONGO_PASSWORD;
+    const dbName = process.env.MONGO_DB_NAME;
+    const cluster = process.env.MONGO_CLUSTER
+
+    
+    const connectionString = `mongodb+srv://${userAdmin}:${password}${cluster}/?retryWrites=true&w=majority&appName=${dbName}`;
     try {
         await mongoose.connect(connectionString, {
             serverSelectionTimeoutMS: 30000, 
