@@ -6,7 +6,7 @@ dotenv.config();
 
 export const connectBd = async () => {
  
-    const connectionString = "mongodb+srv://marcoandres23:m7zXcQyyZ6i2y9BU@cluster0.g7reo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    const connectionString = process.env.MONGODB_URI;
     try {
 
         await mongoose.connect(connectionString, {
@@ -17,4 +17,4 @@ export const connectBd = async () => {
     } catch (error) {
         console.error('Error connecting to the database:', error.message);
     }
-};
+}
