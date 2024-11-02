@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 })
 app.use(cors(
     {
-        origin: 'https://fronted-production-43ca.up.railway.app',
+        origin: 'https://fronted-production-43ca.up.railway.app/',
         credentials: true
     }
 ))
@@ -42,7 +42,7 @@ app.use('/api/auth', authRoutes);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).send('Algo salió mal!');
+    res.status(500).json({ message: 'Algo salió mal!', error: err.message });
 });
 
 export default app;
