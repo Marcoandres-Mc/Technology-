@@ -4,7 +4,7 @@ const API = import.meta.env.VITE_API_URL;
 
 export const getProducts = async () => {
   try {
-    const response = await axios.get(`${API}/products`);
+    const response = await axios.get(`/api/${API}/products`);
     return response.data;
   } catch (error) {
     console.error('Error fetching users:', error);
@@ -13,10 +13,10 @@ export const getProducts = async () => {
 };
 
 export const registerProduct = (product) => { 
-    return axios.post(`${API}/products`, product);
+    return axios.post(`/api/${API}/products`, product);
 }
 
 export const deleteProduct = (id) => {
-    return axios.delete(`${API}/products/${id}`);
+    return axios.delete(`/api/${API}/products/${id}`);
 }
 
