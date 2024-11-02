@@ -5,7 +5,7 @@ const API = import.meta.env.VITE_API_URL;
 
 export const getAdmins = async () => {
     try {
-        const response = await axios.get(`${API}/api/admins`);
+        const response = await axios.get(`${API}/api/auth/admins`);
         return response.data;
     } catch (error) {
         console.error('Error fetching admins:', error);
@@ -15,7 +15,7 @@ export const getAdmins = async () => {
 
 export const getAdmin = async (id) => {
     try {
-        const response = await axios.get(`${API}/api/admins/${id}`);
+        const response = await axios.get(`${API}/api/auth/admins/${id}`);
         return response.data;
     } catch (error) {
         console.error('Error fetching admin:', error);
@@ -28,7 +28,7 @@ export const registerAdmin = (user) => {
 };
 
 export const deleteAdmin = (id) => {
-    return axios.delete(`${API}/api/admins/${id}`);
+    return axios.delete(`${API}/api/auth/admins/${id}`);
 };
 
 export const loginAdmin = (user) => {
