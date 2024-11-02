@@ -5,36 +5,36 @@ const API = import.meta.env.VITE_API_URL;
 
 export const getAdmins = async () => {
     try {
-      const response = await axios.get(`${API}/admins`);
-      return response.data;
+        const response = await axios.get(`${API}/api/admins`);
+        return response.data;
     } catch (error) {
-      console.error('Error fetching users:', error);
-      return [];
+        console.error('Error fetching admins:', error);
+        return [];
     }
-  };
+};
 
-  export const getAdmin = async (id) => {
+export const getAdmin = async (id) => {
     try {
-      const response = await axios.get(`${API}/admins/${id}`);
-      return response.data;
+        const response = await axios.get(`${API}/api/admins/${id}`);
+        return response.data;
     } catch (error) {
-      console.error('Error fetching user:', error);
-      return [];
+        console.error('Error fetching admin:', error);
+        return [];
     }
-  }
+};
 
 export const registerAdmin = (user) => { 
-    return axios.post(`${API}/register`,user);
-}
+    return axios.post(`${API}/api/auth/register`, user);
+};
 
 export const deleteAdmin = (id) => {
-    return axios.delete(`${API}/admins/${id}`);
-}
+    return axios.delete(`${API}/api/admins/${id}`);
+};
 
 export const loginAdmin = (user) => {
-    return axios.post(`${API}/login`,user);
-}
+    return axios.post(`${API}/api/auth/login`, user);
+};
 
 export const logoutAdmin = () => {
-    return axios.post(`${API}/logout`);
-}
+    return axios.post(`${API}/api/auth/logout`);
+};
