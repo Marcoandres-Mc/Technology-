@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = "http://localhost:3500/api";
+const API = process.env.API_URL;
 
 export const getUsers = async () => {
     try {
