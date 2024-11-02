@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, '../client/dis')));
 
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname, '../client/dis', 'index.html'));
 });
 
 app.get('/', (req, res) => {
@@ -40,6 +40,9 @@ app.use('', userProducts);
 app.use('/api/auth', authRoutes);
 
 
-
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Algo salió mal!');
+});
 
 export default app;
