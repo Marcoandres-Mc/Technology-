@@ -18,7 +18,7 @@ function App() {
           <Routes className="sm:w-full">        
             <Route index element={<Login />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/home*" element={
+            <Route path="/home/*" element={
               <ProtectedRoute>
                 <Home/>
               </ProtectedRoute>

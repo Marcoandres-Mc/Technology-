@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import PropTypes from 'prop-types';
 
@@ -17,7 +17,7 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { registerUser } from '../../../api/users';
+import { getUser, registerUser } from '../../../api/users';
 
 
 
@@ -30,16 +30,26 @@ const BtnUser = ({propiedadesBd, type, titulo, genero}) => {
     const letraInicial = genero === 'f' ? 'a' : 'o';
     const [letra] = useState(letraInicial);
 
-
-
-
-    const {register, handleSubmit,formState:{errors}} = useForm();
+    const {register, handleSubmit, formState:{errors}} = useForm();
 
     const onSubmit = handleSubmit((data)=>{
         console.log(data);
         registerUser(data);
 
     })
+
+    const [usuario, setUsuario] = useState({});
+
+    useEffect(() => {
+        async function fetchData (){
+            if(params.id) {
+                const user = await getUser(params.id);
+                setUsuario(user);
+            }
+        }
+
+    }
+    ,[errors])
 
 return (
     <>
@@ -101,7 +111,42 @@ return (
                             {errors[item] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
                     </div>
                     ))
-                }          
+                }
+                
+                {type === 'edit' && propiedadesBd.map((propiedad, index) => (
+                    <div key={index}>
+                        <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="mb-2 text-left font-medium">
+                        {propiedad}
+                        </Typography>
+
+                        <label className="text-blue-gray-700" htmlFor={propiedad}>{propiedad}</label>
+
+                        <Input
+                        type='text'
+                        {...register(propiedad, { required: true })}
+                        color="gray"
+                        size="lg"
+                        placeholder=""
+                        name={propiedad}
+                        className="placeholder:opacity-100 focus:!border-t-gray-900"
+                        containerProps={{
+                            className: "!min-w-full",
+                        }}
+                        labelProps={{
+                            className: "hidden",
+                        }}
+                        defaultValue={propiedadesBd}
+                        />
+                        {errors[propiedad] && (
+                        <Typography variant="small" color="red" className="mb-2 text-left font-medium">
+                            Este campo es requerido
+                        </Typography>
+                        )}
+                    </div>
+                    ))}          
             </DialogBody>
             <DialogFooter>
                     <Button type='submit' className="ml-auto" onClick={handleOpen}>

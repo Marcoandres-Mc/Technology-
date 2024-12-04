@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = import.meta.env.VITE_API_URL;
+const API = "http://localhost:3500" //import.meta.env.VITE_API_URL;
 
 export const getUsers = async () => {
     try {
@@ -11,6 +11,16 @@ export const getUsers = async () => {
       return [];
     }
   };
+
+export const getUser = async (id) => {
+    try {
+        const response = await axios.get(`${API}/api/cuentas/usuarios/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        return [];
+    }
+}
 
 export const registerUser = (user) => { 
     return axios.post(`${API}/api/cuentas/usuarios`,user);

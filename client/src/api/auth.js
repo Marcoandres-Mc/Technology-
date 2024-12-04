@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const API = import.meta.env.VITE_API_URL;
+const API = "http://localhost:3500" //import.meta.env.VITE_API_URL;
 
 export const getAdmins = async () => {
     try {
@@ -23,12 +23,16 @@ export const getAdmin = async (id) => {
     }
 };
 
-export const registerAdmin = (user) => { 
-    return axios.post(`${API}/api/auth/register`, user);
-};
+export const updateAdmin = (id, user) => {
+    return axios.put(`${API}/api/auth/admins/${id}`, user);
+}
 
 export const deleteAdmin = (id) => {
     return axios.delete(`${API}/api/auth/admins/${id}`);
+};
+
+export const registerAdmin = (user) => { 
+    return axios.post(`${API}/api/auth/register`, user);
 };
 
 export const loginAdmin = (user) => {

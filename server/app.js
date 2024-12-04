@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 })
 app.use(cors(
     {
-        origin: 'https://fronted-production-43ca.up.railway.app',
+        origin: 'http://localhost:5173', //'https://fronted-production-43ca.up.railway.app'
         credentials: true
     }
 ))

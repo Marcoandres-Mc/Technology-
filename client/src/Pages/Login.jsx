@@ -15,6 +15,7 @@ const Login = () => {
         try{
             const response = await loginAdmin(data);
             loginAdmin(data);
+            
             if(response.status === 200){
                 login(response.data);
                 navigate('/home');
