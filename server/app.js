@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import userRoutes from './routes/user.routes.js';
 import authRoutes from './routes/auth.routes.js';
 import userProducts from './routes/product.routes.js';
+import compraRoutes from './routes/compra.routes.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
@@ -27,6 +28,8 @@ app.use(cors(
 app.use('/api', userRoutes);
 app.use('/api', userProducts);
 app.use('/api/auth', authRoutes);
+app.use('/api', compraRoutes);
+
 
 
 app.use((err, req, res, next) => {

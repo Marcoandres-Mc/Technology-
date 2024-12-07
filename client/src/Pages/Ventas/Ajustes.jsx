@@ -12,7 +12,7 @@ import { Spinner } from "@material-tailwind/react";
 
 
 const Ajustes = () => {
-  const propiedadesTb = ['nombre','marca', 'precio', 'stock'];
+  const propiedadesTb = ['nombre', 'categoria', 'marca', 'precio', 'stock'];
   const propiedades = ['nombre', 'marca', 'precio', 'stock', 'url', 'descripcion'];
 
   const categoria = ['laptops','celulares','gaming','componentes']

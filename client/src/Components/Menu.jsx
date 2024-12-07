@@ -68,38 +68,25 @@ export function Menu({isDrawerOpen}) {
             },
             {
                 id: 2,
-                nombre: 'Ventas de Productos',
-                url: '/productos/ventas'
-            },
-            {
-                id: 3,
                 nombre: 'Importación de Productos',
-                url: '/productos/importacion'
+                url: 'home/productos/importacion'
             },
         ]   
     },
-
     {
         id: 3,
-        nombre: 'Provedores',
+        nombre: 'Ventas',
         icon: CogIcon,
         subcategorias: [
             {
                 id: 1,
-                nombre: 'Provedores',
-                url: '/provedores'
-            }
-        ]
-    },
-    {
-        id: 4,
-        nombre: 'Configuraciones',
-        icon: CogIcon,
-        subcategorias: [
+                nombre: 'Ventas de Productos',
+                url: 'home/ventas/ajustes'
+            },
             {
-                id: 1,
-                nombre: 'Configuraciones',
-                url: '/configuraciones'
+                id: 2,
+                nombre: 'Ventas de Productos (estadistica)',
+                url: 'home/ventas/ventas'
             }
         ]
     }

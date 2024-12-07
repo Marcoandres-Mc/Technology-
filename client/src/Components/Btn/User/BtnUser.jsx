@@ -23,9 +23,10 @@ import { getUser, registerUser } from '../../../api/users';
 
 
 
-const BtnUser = ({propiedadesBd, type, titulo, genero}) => {
+const BtnUser = ({type, titulo, genero,bd, n}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(!open);
+    const propiedades = ['nombre', 'email', 'password'];
 
     const letraInicial = genero === 'f' ? 'a' : 'o';
     const [letra] = useState(letraInicial);
@@ -47,7 +48,7 @@ const BtnUser = ({propiedadesBd, type, titulo, genero}) => {
                 setUsuario(user);
             }
         }
-
+        fetchData ()
     }
     ,[errors])
 
@@ -83,7 +84,7 @@ return (
                 className="mb-2 text-left font-medium">
                 </Typography>
                 {
-                    Array.isArray(propiedadesBd) && propiedadesBd.map((item, index) => (
+                    Array.isArray(propiedades) && propiedades.map((item, index) => (
                     <div key={index}>
                         <Typography
                         variant="small"
@@ -113,7 +114,7 @@ return (
                     ))
                 }
                 
-                {type === 'edit' && propiedadesBd.map((propiedad, index) => (
+                {type === 'edit' && propiedades.map((propiedad, index) => (
                     <div key={index}>
                         <Typography
                         variant="small"
@@ -138,7 +139,7 @@ return (
                         labelProps={{
                             className: "hidden",
                         }}
-                        defaultValue={propiedadesBd}
+                        defaultValue={propiedades}
                         />
                         {errors[propiedad] && (
                         <Typography variant="small" color="red" className="mb-2 text-left font-medium">

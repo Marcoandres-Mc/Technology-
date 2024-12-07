@@ -12,6 +12,21 @@ export const getProducts = async () => {
   }
 };
 
+export const getProduct = async (id) => {
+    try {
+        const response = await axios.get(`${API}/api/products/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        return [];
+    }
+}
+
+export const updateProduct = (id, product) => {
+    return axios.put(`${API}/api/products/${id}`, product);
+}
+
+
 export const registerProduct = (product) => { 
     return axios.post(`${API}/api/products`, product);
 }

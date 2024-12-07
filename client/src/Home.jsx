@@ -5,8 +5,9 @@ import Cuentas from "./Pages/Cuentas/Cuentas"
 import Admins from "./Pages/Cuentas/Admins"
 import Usuarios from "./Pages/Cuentas/Usuarios"
 import Productos from "./Pages/Productos/Productos"
-import Ajustes from "./Pages/Productos/Ajustes"
-import VentasProductos from "./Pages/Productos/VentasProductos"
+import AjustesP from "./Pages/Productos/Ajustes"
+import AjustesV from "./Pages/Ventas/Ajustes"
+import VentasProductos from "./Pages/Ventas/VentasProductos"
 import ImportacionProductos from "./Pages/Productos/ImportacionProductos"
 import PaginaNoDisponible from "./Pages/PaginaNoDisponible"
 import Provedores from "./Pages/Provedores"
@@ -14,6 +15,8 @@ import Nav from "./Components/Nav"
 import Menu from "./Components/Menu"
 import BotonMenu from "./Components/BotonMenu"
 import HomePage from "./Pages/Home"
+import Ventas from "./Pages/Ventas/Ventas"
+import Ventas from "./Pages/Ventas/Ventas"
 
 
 
@@ -41,9 +44,13 @@ const Home = () => {
                 </Route>
 
                 <Route path="/productos/*" element={<Productos />}>
-                    <Route path="ajustes" element={<Ajustes />} />
-                    <Route path="ventas" element={<VentasProductos />} />
+                    <Route path="ajustes" element={<AjustesP />} />
                     <Route path="importacion" element={<ImportacionProductos />}/>
+
+                </Route>
+                <Route path="/ventas/*" element={<Ventas />}>
+                    <Route path="ajustes" element={<AjustesV />} />
+                    <Route path="ventas" element={<VentasProductos />} />
 
                 </Route>
         

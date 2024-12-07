@@ -13,6 +13,8 @@ import BtnProduct from "./Btn/Product/BtnProduct";
  
 export function Tabla({propiedadesBd, bd, title,propiedades}) {
 
+  
+
   return (
     <>
       <Card className="h-full w-50 m-3">
@@ -69,9 +71,10 @@ export function Tabla({propiedadesBd, bd, title,propiedades}) {
                     ))
                   }
                   <td className="p-4 text-center"> 
-                    {title === "Admins" ? <BtnAdmin n={index} type="edit" bd={bd} titulo={title} /> : null}
-                    {title === "Usuarios" ? <BtnUser type="edit" bd={bd} propiedadesBd={propiedadesBd} titulo={title} /> : null}
-                    {title === "Productos" ? <BtnProduct type="edit" bd={bd} propiedadesBd={propiedadesBd} titulo={title} /> : null}
+                  {title === "Admins" ? <BtnAdmin n={index} type="edit" bd={bd} titulo={title} /> : null}
+                  {title === "Usuarios" ? <BtnUser type="edit" bd={bd} propiedadesBd={propiedadesBd} titulo={title} genero="m" /> : null}
+                  {title === "Productos" ? <BtnUpdateP type="edit" bd={bd} i={index} propiedadesBd={propiedadesBd} titulo={title} /> : null}
+                  {title === "Compra" ? <BtnUpdateS type="edit" bd={bd} i={index} propiedadesBd={propiedadesBd} titulo={title} /> : null}
                   </td>
 
                   <td className="p-4 text-center">
@@ -79,7 +82,7 @@ export function Tabla({propiedadesBd, bd, title,propiedades}) {
                       {title === "Admins" ? <BtnDeleteA type="delete" titulo={title} id={item._id} /> : null}
                       {title === "Usuarios" ? <BtnDeleteU type="delete" titulo={title} id={item._id} /> : null}
                       {title === "Productos" ? <BtnDeleteP type="delete" titulo={title} id={item._id} /> : null}
-                      
+                      {title === "Compra" ? <BtnDeleteS type="delete" titulo={title} id={item._id} /> : null}
                     </Button>
                   </td>
                 </tr>
