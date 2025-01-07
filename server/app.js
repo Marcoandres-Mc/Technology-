@@ -19,12 +19,12 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send('Conectado');
 })
-app.use(cors(
-    {
-        origin: 'http://localhost:5173', //'https://fronted-production-43ca.up.railway.app'
-        credentials: true
-    }
-))
+
+app.use(cors({
+    origin: process.env.MAIN_PAGE.replace(/\/$/, ''), 
+    credentials: true
+}));
+
 app.use('/api', userRoutes);
 app.use('/api', userProducts);
 app.use('/api/auth', authRoutes);

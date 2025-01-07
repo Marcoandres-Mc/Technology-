@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const API = "http://localhost:3500" //import.meta.env.VITE_API_URL;
+import API from './urlAPI';
 
 export const getUsers = async () => {
     try {

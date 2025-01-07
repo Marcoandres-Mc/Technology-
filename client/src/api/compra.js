@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const API = "http://localhost:3500"; // URL de la API en local
+import API from './urlAPI';
 
 export const getCompras = async () => {
     try {
