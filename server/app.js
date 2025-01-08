@@ -6,6 +6,7 @@ import userProducts from './routes/product.routes.js';
 import compraRoutes from './routes/compra.routes.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 
 const app = express();
