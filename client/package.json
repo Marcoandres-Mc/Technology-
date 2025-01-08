@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "private": true,
+  "main": "App.js",
   "version": "0.0.0",
   "type": "module",
 
