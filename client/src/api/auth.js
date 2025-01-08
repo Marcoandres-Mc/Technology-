@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API from './urlAPI';
+import {API} from './urlAPI';
 
 export const getAdmins = async () => {
     try {
