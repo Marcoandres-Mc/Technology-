@@ -16,7 +16,6 @@ import Menu from "./Components/Menu"
 import BotonMenu from "./Components/BotonMenu"
 import HomePage from "./Pages/Home"
 import Ventas from "./Pages/Ventas/Ventas"
-import Ventas from "./Pages/Ventas/Ventas"
 
 
 
