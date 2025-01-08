@@ -22,10 +22,11 @@ app.get('/', (req, res) => {
 })
 
 app.use(cors({
-    origin: process.env.MAIN_PAGE.replace(/\/$/, ''), 
+    origin: process.env.MAIN_PAGE ? process.env.MAIN_PAGE.replace(/\/$/, '') : '', 
     credentials: true
-}));
+  }));
 
+  
 app.use('/api', userRoutes);
 app.use('/api', userProducts);
 app.use('/api/auth', authRoutes);
