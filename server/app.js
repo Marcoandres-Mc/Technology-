@@ -6,11 +6,12 @@ import userProducts from './routes/product.routes.js';
 import compraRoutes from './routes/compra.routes.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
+dotenv.config();
 
 
 
 const app = express();
-dotenv.config();
+
 
 app.use(morgan('dev'));
 app.use(express.json());
@@ -22,9 +23,11 @@ app.get('/', (req, res) => {
 })
 
 app.use(cors({
-    origin: process.env.MAIN_PAGE ? process.env.MAIN_PAGE.replace(/\/$/, '') : '', 
-    credentials: true
-  }));
+    origin: process.env.MAIN_PAGE , 
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],    
+    allowedHeaders: ['Content-Type', 'Authorization'],       
+    credentials: true                                        
+}));
 
 
 app.use('/api', userRoutes);
