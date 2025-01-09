@@ -23,10 +23,8 @@ app.get('/', (req, res) => {
 })
 
 app.use(cors({
-    origin: process.env.MAIN_PAGE , 
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],    
-    allowedHeaders: ['Content-Type', 'Authorization'],       
-    credentials: true                                        
+    origin: process.env.MAIN_PAGE.replace(/\/$/, ''), 
+    credentials: true
 }));
 
 
