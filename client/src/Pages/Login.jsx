@@ -40,8 +40,8 @@ const Login = () => {
             <figure className="w-auto flex justify-start">
                 <img style={{height: "100vh"}} src={imgLogin} alt="" />
             </figure>
-            <div className="w-50 m-5 p-5 rounded-lg shadow-md max-w-md w-full text-black flex justify-center align-middle flex-col" style={{ backgroundColor: '#618c98'}}>
-                <h3 className="text-3xl font-bold mb-4">Iniciar Sesión</h3>
+            <div className="w-50 m-5 p-5 rounded-lg shadow-md max-w-md w-full text-black flex justify-center align-middle flex-col" style={{ backgroundColor: '#3e85a6'}}>
+                <h3 className="text-3xl font-bold mb-4 text-black text-center m-2">Iniciar Sesión</h3>
                 <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4 w-full">
                     <div>
                         <label htmlFor="userName" className="block text-gray-300 text-black">UserName</label>
