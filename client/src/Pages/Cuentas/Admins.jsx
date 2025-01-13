@@ -12,11 +12,13 @@ import {Typography} from "@material-tailwind/react";
 
 
 const Admins = () => {
-  const propiedadesTb = ['userName', 'email', 'date'];
-  const propiedades = ['userName', 'email', 'password'];
+  const propiedadesTb = ['userName', 'email', 'password'];
+  const propiedades = ['userName', 'email', 'date'];
   
   const [loading, setLoading] = useState(true);
   const [admins, setAdmins] = useState([]);
+
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -43,7 +45,7 @@ const Admins = () => {
           </div>
         ):(
           <>
-        <Tabla propiedades={propiedades} propiedadesBd={propiedadesTb} bd={admins} title={"Admins"}/>
+        <Tabla propiedadesBd={propiedades} bd={admins} title={"Admins"}/>
         <div className="my-5">
           <BtnAdmin propiedadesBd={propiedadesTb} type="new" titulo="cuenta admin" genero="f" />
         </div>

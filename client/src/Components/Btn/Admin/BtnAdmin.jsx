@@ -27,62 +27,24 @@ import { useNavigate, useParams } from 'react-router-dom';
 const BtnAdmin = ({type, titulo, genero,bd, n}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(!open);
-    const {id} = useParams();
 
+    const propiedades = ['userName', 'email', 'password'];
     const letraInicial = genero === 'f' ? 'a' : 'o';
     const [letra] = useState(letraInicial);
 
-    useEffect(() => {
-        console.log(bd);
-    }, [bd])
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
 
+    const onSubmit  = handleSubmit( async (data) => {
+        console.log(data);
+        await registerAdmin(data);
 
-    const [admin, setAdmin] = useState([]);
-    const propiedades = ['userName', 'email','password'];
-    const {register, handleSubmit,formState:{errors}} = useForm();
-    
-    const onSubmit = handleSubmit((data)=>{
-        if(type == 'edit'){
-            console.log(data);
-            updateAdmin(admin,data);
-            
-        }
-
-        if(type == 'new'){
-            console.log(data);
-            registerAdmin(data);
-        }
-
-    })
-        const navigate = useNavigate();
-        const handleEdit = () => {
-            setAdmin(id);
-            navigate(`/admin/${admin}`);
-        }
-
-    
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await getAdmins();
-            setAdmin(data[n]);
-        };
-        fetchData();
-    }, []);
-
-
-
-    useEffect(() => {
-        async function fetchData(){
-            try {
-                const data = await getAdmin();
-                setAdmin(data);
-            }
-            catch (error) {
-                console.error('Error fetching users:', error);
-            }
-        }
-        fetchData();
-    },[id])
+        navigate('/home');
+        
+        setTimeout(() => {
+        navigate('/home/cuentas/admins'); 
+        }, 20);
+    });
 
 
 return (

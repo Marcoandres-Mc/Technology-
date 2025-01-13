@@ -3,11 +3,15 @@ import { Card, Typography } from "@material-tailwind/react";
 import BtnDeleteA from "./Btn/Admin/BtnDeleteA";
 import BtnDeleteU from "./Btn/User/BtnDeleteU";
 import BtnDeleteP from "./Btn/Product/BtnDeleteP";
+import BtnDeleteC from "./Btn/Compra/BtnDeleteC";
 
 import {Button} from "@material-tailwind/react";
-import BtnUser from "./Btn/User/BtnUser";
-import BtnAdmin from "./Btn/Admin/BtnAdmin";
-import BtnProduct from "./Btn/Product/BtnProduct";
+import BtnUpdateA from "./Btn/Admin/BtnUpdateA";
+import BtnUpdateU from "./Btn/User/BtnUpdateU";
+import BtnUpdateP from "./Btn/Product/BtnUpdateP";
+import BtnUpdateC from "./Btn/Compra/BtnUpdateC";
+
+
 
 
  
@@ -71,10 +75,10 @@ export function Tabla({propiedadesBd, bd, title,propiedades}) {
                     ))
                   }
                   <td className="p-4 text-center"> 
-                  {title === "Admins" ? <BtnAdmin n={index} type="edit" bd={bd} titulo={title} /> : null}
-                  {title === "Usuarios" ? <BtnUser type="edit" bd={bd} propiedadesBd={propiedadesBd} titulo={title} genero="m" /> : null}
+                  {title === "Admins" ? <BtnUpdateA type="edit" bd={bd} id={item._id} i={index} propiedadesBd={propiedadesBd} titulo={title} /> : null}
+                  {title === "Usuarios" ? <BtnUpdateU type="edit" bd={bd} id={item._id} i={index} propiedadesBd={propiedadesBd} titulo={title} genero="m" /> : null}
                   {title === "Productos" ? <BtnUpdateP type="edit" bd={bd} i={index} propiedadesBd={propiedadesBd} titulo={title} /> : null}
-                  {title === "Compra" ? <BtnUpdateS type="edit" bd={bd} i={index} propiedadesBd={propiedadesBd} titulo={title} /> : null}
+                  {title === "Compra" ? <BtnUpdateC type="edit" bd={bd} i={index} propiedadesBd={propiedadesBd} titulo={title} /> : null}
                   </td>
 
                   <td className="p-4 text-center">
@@ -82,7 +86,7 @@ export function Tabla({propiedadesBd, bd, title,propiedades}) {
                       {title === "Admins" ? <BtnDeleteA type="delete" titulo={title} id={item._id} /> : null}
                       {title === "Usuarios" ? <BtnDeleteU type="delete" titulo={title} id={item._id} /> : null}
                       {title === "Productos" ? <BtnDeleteP type="delete" titulo={title} id={item._id} /> : null}
-                      {title === "Compra" ? <BtnDeleteS type="delete" titulo={title} id={item._id} /> : null}
+                      {title === "Compra" ? <BtnDeleteC type="delete" titulo={title} id={item._id} /> : null}
                     </Button>
                   </td>
                 </tr>

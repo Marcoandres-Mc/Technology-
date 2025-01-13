@@ -16,20 +16,25 @@ import {
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { deleteUser } from '../../../api/users';
+import { useNavigate } from 'react-router-dom';
 
 
 const BtnDeleteU = ({type, titulo,id}) => {
     const [open, setOpen] = React.useState(false);
     
     const handleOpen = () => setOpen(!open);
+    const navigate = useNavigate();
 
     const handleDelete = async () => {
-        try {
-            await deleteUser(id);
-            setOpen(!open)
-          } catch (error) {
-            console.error('Error deleting user:', error);
-          }
+        await deleteUser(id);
+
+        navigate('/home');
+        setTimeout(() => {
+            navigate('/home/cuentas/usuarios'); 
+            }, 20);
+    
+        setOpen(!open)
+
     };
 
   return (

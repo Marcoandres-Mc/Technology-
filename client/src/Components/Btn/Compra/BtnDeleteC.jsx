@@ -14,7 +14,7 @@ import {
     DialogFooter,
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { deleteCompra } from '../../../api/compras';
+import { deleteCompra } from '../../../api/compra';
 
 const BtnDeleteC = ({type, titulo, id}) => {
         const [open, setOpen] = React.useState(false);
@@ -61,4 +61,4 @@ const BtnDeleteC = ({type, titulo, id}) => {
     )
 }
 
-export default BtnDeleteC
+export default BtnDeleteC;

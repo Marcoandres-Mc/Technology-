@@ -16,7 +16,8 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { updateDulce } from '../../../api/dulceria';
+import { updateCompra } from '../../../api/compra';
+
 
 
 
@@ -31,7 +32,7 @@ const BtnUpdateC = ({ type, titulo, genero, bd, i }) => {
     const onSubmit = handleSubmit((data) => {
         data._id = bd[i]._id;
         console.log(data)
-        updateDulce(data);
+        updateCompra(data);
     });
 
     return (

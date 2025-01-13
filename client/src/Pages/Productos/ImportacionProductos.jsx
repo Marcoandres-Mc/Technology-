@@ -5,6 +5,8 @@ import  BtnEspecial from "../../Components/BtnEspecial";
 import { bdImportacionProductos, propiedadesImportacionProductos } from "../../data/bdImportacionProductos.json";
 
 import {Typography} from "@material-tailwind/react";
+import BtnProduct from "../../Components/Btn/Product/BtnProduct";
+
 
 
 const ImportacionProductos = () => {
@@ -18,7 +20,7 @@ const ImportacionProductos = () => {
       <div>
       <Tabla propiedadesBd={propiedadesImportacionProductos}  bd={bdImportacionProductos} edit='true' title={"venta de productos"} eliminar='true'/>
       <div className={"my-5"}>
-      <BtnEspecial propiedadesBd={propiedadesImportacionProductos} type={"new"} titulo={"producto"} genero={"f"} />
+      <BtnProduct propiedadesBd={propiedadesImportacionProductos} type={"new"} titulo={"producto"} genero={"f"} />
       </div>
       
       </div>

@@ -22,14 +22,26 @@ export const getProduct = async (id) => {
     }
 }
 
-export const updateProduct = (id, product) => {
-    return axios.put(`${API}/api/products/${id}`, product);
+
+export const updateProduct = async (product) => {
+  try {
+    const response = await axios.put(`${API}/api/products/${product._id}`, product);
+    return response.data;
+  } catch (error) {
+    console.error(`Error updating pelicula with id ${product._id}:`, error);
+    return null;
+  }
 }
 
-
-export const registerProduct = (product) => { 
-    return axios.post(`${API}/api/products`, product);
-}
+export const registerProduct = async (product) => {
+  try {
+    const response = await axios.post(`${API}/api/products`, product);
+    return response.data;
+  } catch (error) {
+    console.error('Error registering pelicula:', error);
+    return null;
+  }
+};
 
 export const deleteProduct = (id) => {
     return axios.delete(`${API}/api/products/${id}`);

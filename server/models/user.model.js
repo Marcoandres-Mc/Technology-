@@ -25,11 +25,9 @@ const userSchema = new mongoose.Schema({
             productoId: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Product',
-                required: true,
             },
             cantidad: {
                 type: Number,
-                required: true,
             },
         }
     ],

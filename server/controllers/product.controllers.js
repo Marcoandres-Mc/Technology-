@@ -62,5 +62,18 @@ export const deleteProduct = async (req, res) => {
     }
 }
 
-export default { getProducts, getProduct, registerProduct, deleteProduct };
+
+  export const updateProduct = async (req, res) => {
+    try {
+      const product = await Product.findByIdAndUpdate(req.params.id, req.body, {new: true});
+      if (!product) {
+        return res.status(404).json({ mensaje: 'producto no encontrada' });
+      }
+      res.json({ mensaje: 'producto actualizada' });
+    } catch (error) {
+      res.status(500).json({ mensaje: error.message });
+    }
+  }
+
+export default { getProducts, getProduct, registerProduct, deleteProduct, updateProduct };
 

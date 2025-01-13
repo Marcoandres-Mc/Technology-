@@ -28,3 +28,14 @@ export const registerUser = (user) => {
 export const deleteUser = (id) => {
     return axios.delete(`${API}/api/cuentas/usuarios/${id}`);
 }
+
+export const updateUser = async (user,id) => {
+  try {
+    const response = await axios.put(`${API}/api/cuentas/usuarios/${id}`, user);
+    return response.data;
+  } catch (error) {
+    console.error(`Error updating user with id ${id}:`, error);
+    return null;
+  }
+}
+

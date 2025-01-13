@@ -16,20 +16,24 @@ import {
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { deleteProduct } from '../../../api/products';
+import { useNavigate } from 'react-router-dom';
 
 
 const BtnDeleteP = ({type, titulo,id}) => {
     const [open, setOpen] = React.useState(false);
     
     const handleOpen = () => setOpen(!open);
+    const navigate = useNavigate();
 
     const handleDelete = async () => {
-        try {
-            await deleteProduct(id);
-            setOpen(!open)
-          } catch (error) {
-            console.error('Error deleting user:', error);
-          }
+        await deleteProduct(id);
+        navigate('/home');
+
+        setTimeout(() => {
+            navigate('/home/productos/ajustes'); 
+        }, 20);
+
+        setOpen(!open)
     };
 
   return (
