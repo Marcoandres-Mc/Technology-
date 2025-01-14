@@ -82,11 +82,6 @@ export function Menu({isDrawerOpen}) {
                 id: 1,
                 nombre: 'Ventas de Productos',
                 url: 'home/ventas/ajustes'
-            },
-            {
-                id: 2,
-                nombre: 'Ventas de Productos (estadistica)',
-                url: 'home/ventas/ventas'
             }
         ]
     }

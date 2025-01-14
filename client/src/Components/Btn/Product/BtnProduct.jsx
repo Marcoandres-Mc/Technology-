@@ -20,25 +20,31 @@ import { registerProduct } from '../../../api/products';
 import Select from 'react-select';
 import { useNavigate } from 'react-router-dom';
 
+const options = [
+    { value: 'laptops', label: 'Laptops' },
+    { value: 'celulares', label: 'Celulares' },
+    { value: 'componentes', label: 'Componentes' },
+    { value: 'gaming', label: 'Gaming' }
+  ]
 
 
 const BtnProduct = ({type, titulo, genero,bd, n}) => {
     const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(!open);
     
-        const propiedades = ['nombre', 'marca', 'precio', 'stock', 'url', 'descripcion', 'categoria'];
+        const propiedades = ['nombre', 'marca', 'precio', 'stock', 'url', 'descripcion'];
         const letraInicial = genero === 'f' ? 'a' : 'o';
         const [letra] = useState(letraInicial);
     
-        const { register, handleSubmit, formState: { errors } } = useForm();
+        const { register, handleSubmit,setValue, formState: { errors } } = useForm();
         const navigate = useNavigate();
+
+        
     
         const onSubmit  = handleSubmit( async (data) => {
-            const categoriaMinuscula = data.categoria.toLowerCase();
-            const dataT = {...data, categoria: categoriaMinuscula};
-
-            await registerProduct(dataT);
-            console.log(dataT);
+            console.log(data);
+            await registerProduct(data);
+            
     
             navigate('/home');
             
@@ -47,23 +53,11 @@ const BtnProduct = ({type, titulo, genero,bd, n}) => {
             }, 20);
         });
 
-    /* const options = [
-        { value: 'laptops', label: 'Laptops' },
-        { value: 'celulares', label: 'Celulares' },
-        { value: 'componentes', label: 'Componentes' },
-        { value: 'gaming', label: 'Gaming' }
-      ]
+     
 
-    const Categoria = () => (
-        <div className='my-3 p-0'>
-            <label className="text-blue-gray-700" htmlFor="categoria">{"categoria"}</label>
-            <Select 
-            {...register("categoria", {required: true})}
-            options={options} 
-            />
-            {errors["categoria"] && <Typography variant="small" color="red" className="mb-2 text-left font-medium">Este campo es requerido</Typography>}
-        </div>
-    ) */
+        const handleCategoriaChange = (selectedOption) => {
+            setValue('categoria', selectedOption.value);
+        };
 
 
     return (
@@ -109,7 +103,7 @@ const BtnProduct = ({type, titulo, genero,bd, n}) => {
                             <label className="text-blue-gray-700" htmlFor={item}>{item}</label>
     
                             <Input
-                            type='text'
+                            type={item === 'precio' || item === 'stock'? 'number': 'text'}
                             {...register(item, {required: true})}
                             color="gray"
                             size="lg"
@@ -127,7 +121,20 @@ const BtnProduct = ({type, titulo, genero,bd, n}) => {
                         </div>
                         ))
                     }
-                    {/* <Categoria /> */}
+                    
+                     <div className='my-3 p-0'>
+                        <label className="text-blue-gray-700" htmlFor="categoria">Categoría</label>
+                        <Select 
+                            options={options} 
+                            classNamePrefix="select"
+                            onChange={handleCategoriaChange}
+                        />
+                        {errors.categoria && (
+                            <Typography variant="small" color="red" className="mb-2 text-left font-medium">
+                                Este campo es requerido
+                            </Typography>
+                        )}
+                    </div>
                     
                 </DialogBody>
                 <DialogFooter>
