@@ -34,8 +34,11 @@ const BtnProduct = ({type, titulo, genero,bd, n}) => {
         const navigate = useNavigate();
     
         const onSubmit  = handleSubmit( async (data) => {
-            console.log(data);
-            await registerProduct(data);
+            const categoriaMinuscula = data.categoria.toLowerCase();
+            const dataT = {...data, categoria: categoriaMinuscula};
+
+            await registerProduct(dataT);
+            console.log(dataT);
     
             navigate('/home');
             

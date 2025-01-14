@@ -44,7 +44,7 @@ const Login = () => {
                 <h3 className="text-3xl font-bold mb-4 text-black text-center m-2">Iniciar Sesión</h3>
                 <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4 w-full">
                     <div>
-                        <label htmlFor="userName" className="block text-gray-300 text-black">UserName</label>
+                        <label htmlFor="userName" className="block text-gray-300 ">UserName</label>
                         <input
                             type="text"
                             {...register("userName", { required: true })} 
@@ -55,7 +55,7 @@ const Login = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="password" className="block text-gray-300 text-black">Contraseña</label>
+                        <label htmlFor="password" className="block text-gray-300 ">Contraseña</label>
                         <input
                             type="password"
                             {...register("password", { required: true })} 

@@ -35,8 +35,12 @@ const BtnUpdateP = ({type, titulo, genero,bd, i}) => {
     
         const onSubmit  = handleSubmit( async (data) => {
             data._id = bd[i]._id;
-            console.log(data);
-            await updateProduct(data);;
+            const categoriaMinuscula = data.categoria.toLowerCase();
+            const dataT = {...data, categoria: categoriaMinuscula};
+
+
+            await updateProduct(dataT);
+            console.log(dataT);
     
             navigate('/home');
             

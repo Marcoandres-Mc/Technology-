@@ -2,7 +2,7 @@ import { Router } from "express";
 
 import { register, login, logout, profile, getAdmins, deleteAdmin, updateAdmin} from "../controllers/auth.controllers.js";
 
-import authRequired from "../middlewares/validateToken.js";
+//import authRequired from "../middlewares/validateToken.js";
 
 
 const router = Router();
@@ -14,7 +14,7 @@ router.post("/login", login);
 
 router.post("/logout", logout);
 
-router.post("/profile", authRequired ,profile);
+router.post("/profile",profile);
 
 router.get("/admins", getAdmins);
 
