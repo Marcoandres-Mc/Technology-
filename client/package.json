@@ -3,7 +3,6 @@
   "main": "App.js",
   "version": "0.0.0",
   "type": "module",
-
   "scripts": {
     "start": "vite --host",
     "build": "vite build",
@@ -18,7 +17,8 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.1",
     "react-router-dom": "^6.27.0",
-    "react-select": "^5.8.2"
+    "react-select": "^5.8.2",
+    "react-spinners": "^0.15.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
