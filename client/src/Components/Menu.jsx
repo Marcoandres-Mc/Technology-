@@ -84,6 +84,18 @@ export function Menu({isDrawerOpen}) {
                 url: 'home/ventas/ajustes'
             }
         ]
+    },
+    {
+        id: 4,
+        nombre: 'Sedes',
+        icon: CogIcon,
+        subcategorias: [
+            {
+                id: 1,
+                nombre: 'principal',
+                url: 'home/sedes'
+            }
+        ]
     }
 ];
  

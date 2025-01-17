@@ -16,6 +16,7 @@ import Menu from "./Components/Menu"
 import BotonMenu from "./Components/BotonMenu"
 import HomePage from "./Pages/Home"
 import Ventas from "./Pages/Ventas/Ventas"
+import Sedes from "./Pages/Sedes/Sedes"
 
 
 
@@ -52,6 +53,8 @@ const Home = () => {
                     <Route path="ventas" element={<VentasProductos />} />
 
                 </Route>
+
+                <Route path="/sedes" element={<Sedes />} />
         
               <Route path="/provedores" element={<Provedores />} />
               

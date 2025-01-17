@@ -4,12 +4,15 @@ import BtnDeleteA from "./Btn/Admin/BtnDeleteA";
 import BtnDeleteU from "./Btn/User/BtnDeleteU";
 import BtnDeleteP from "./Btn/Product/BtnDeleteP";
 import BtnDeleteC from "./Btn/Compra/BtnDeleteC";
+import BtnDeleteS from "./Btn/Sedes/BtnDeleteS";
 
 import {Button} from "@material-tailwind/react";
 import BtnUpdateA from "./Btn/Admin/BtnUpdateA";
 import BtnUpdateU from "./Btn/User/BtnUpdateU";
 import BtnUpdateP from "./Btn/Product/BtnUpdateP";
 import BtnUpdateC from "./Btn/Compra/BtnUpdateC";
+import BtnUpdateS from "./Btn/Sedes/BtnUpdateS";
+
 
 
 
@@ -79,6 +82,7 @@ export function Tabla({propiedadesBd, bd, title,propiedades}) {
                   {title === "Usuarios" ? <BtnUpdateU type="edit" bd={bd} id={item._id} i={index} propiedadesBd={propiedadesBd} titulo={title} genero="m" /> : null}
                   {title === "Productos" ? <BtnUpdateP type="edit" bd={bd} i={index} propiedadesBd={propiedadesBd} titulo={title} /> : null}
                   {title === "Compra" ? <BtnUpdateC type="edit" bd={bd} i={index} propiedadesBd={propiedadesBd} titulo={title} /> : null}
+                  {title === "Sedes" ? <BtnUpdateS type="edit" bd={bd} i={index} propiedadesBd={propiedadesBd} titulo={title} /> : null}
                   </td>
 
                   <td className="p-4 text-center">
@@ -87,6 +91,7 @@ export function Tabla({propiedadesBd, bd, title,propiedades}) {
                       {title === "Usuarios" ? <BtnDeleteU type="delete" titulo={title} id={item._id} /> : null}
                       {title === "Productos" ? <BtnDeleteP type="delete" titulo={title} id={item._id} /> : null}
                       {title === "Compra" ? <BtnDeleteC type="delete" titulo={title} id={item._id} /> : null}
+                      {title === "Sedes" ? <BtnDeleteS type="delete" titulo={title} id={item._id} /> : null}
                     </Button>
                   </td>
                 </tr>
