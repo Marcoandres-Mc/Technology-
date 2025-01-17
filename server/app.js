@@ -4,6 +4,7 @@ import userRoutes from './routes/user.routes.js';
 import authRoutes from './routes/auth.routes.js';
 import userProducts from './routes/product.routes.js';
 import compraRoutes from './routes/compra.routes.js';
+import sedesRoutes from './routes/sedes.routes.js'
 import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
 })
 
 app.use(cors({
-    origin: process.env.MAIN_PAGE.replace(/\/$/, ''), //'http://localhost:5173'
+    origin: 'http://localhost:5173' , //process.env.MAIN_PAGE.replace(/\/$/, '') 
     credentials: true
 }));
 
@@ -32,6 +33,7 @@ app.use('/api', userRoutes);
 app.use('/api', userProducts);
 app.use('/api/auth', authRoutes);
 app.use('/api', compraRoutes);
+app.use('/api', sedesRoutes);
 
 
 
